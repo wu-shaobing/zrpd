@@ -13,7 +13,7 @@ describe('gameStore', () => {
   });
 
   it('should initialize cards with given IDs', () => {
-    const { initCards, cards } = useGameStore.getState();
+    const { initCards } = useGameStore.getState();
     initCards(['card-1', 'card-2', 'card-3']);
     
     const state = useGameStore.getState();
@@ -77,12 +77,10 @@ describe('gameStore', () => {
     const initialOrder = useGameStore.getState().cards.map((c) => c.id);
     
     // Shuffle multiple times to increase chance of different order
-    let shuffled = false;
     for (let i = 0; i < 10; i++) {
       shuffleCards();
       const newOrder = useGameStore.getState().cards.map((c) => c.id);
       if (JSON.stringify(initialOrder) !== JSON.stringify(newOrder)) {
-        shuffled = true;
         break;
       }
     }
