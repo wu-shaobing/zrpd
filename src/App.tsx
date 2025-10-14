@@ -5,6 +5,7 @@ import { VowelsSection } from './features/vowels/VowelsSection';
 import { ConsonantsSection } from './features/consonants/ConsonantsSection';
 import { GameSection } from './features/game/GameSection';
 import { AchievementSection } from './features/game/AchievementSection';
+import { RulesSection } from './features/rules/RulesSection';
 import { useProgress } from './hooks/useProgress';
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
         <ConsonantsSection />
         <GameSection />
         <AchievementSection />
+        <RulesSection />
       </main>
       <Footer />
     </div>

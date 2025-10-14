@@ -1,0 +1,172 @@
+{
+  "sections": [
+    {
+      "id": "letters-26",
+      "title": "一、26个字母自然拼读规则",
+      "color": "indigo",
+      "subsections": [
+        {
+          "title": "1) 元音字母（a, e, i, o, u）",
+          "rules": [
+            {
+              "letter": "A",
+              "description": "闭音节（辅+a+辅）发 /æ/（bag, map）；开音节（a+辅+e）发 /eɪ/（name, take）；特殊：在 w 后发 /ɒ/（want, wash）；在 f/n/sk 等前发 /ɑː/（after, ask）；非重读音节发 /ə/（China）或 /ɪ/（orange）。"
+            },
+            {
+              "letter": "E",
+              "description": "闭音节（辅+e+辅）发 /e/（egg, best）；开音节发 /iː/（be, he）；非重读音节发 /ə/（open）或 /ɪ/（chicken）。"
+            },
+            {
+              "letter": "I",
+              "description": "闭音节（辅+i+辅）发 /ɪ/（bit, fit）；开音节（i+辅+e）发 /aɪ/（like, kite）；遇 gh/nd 组合也发 /aɪ/（high, find）；非重读音节发 /ɪ/（family）。"
+            },
+            {
+              "letter": "O",
+              "description": "闭音节（辅+o+辅，重读）发 /ɒ/（dog, lot）；开音节（o+辅+e）发 /əʊ/（note, hope）；词尾时也发 /əʊ/（no, also）；特殊：在 m/n/v/th 前发 /ʌ/（come, love）；非重读闭音节发 /ə/（today）。"
+            },
+            {
+              "letter": "U",
+              "description": "闭音节发 /ʌ/（bus, cup）；开音节（u+辅+e）发 /juː/（student）；在 j/r/s 后发 /uː/（rude, blue）；非重读音节发 /ə/（difficult）。"
+            }
+          ]
+        },
+        {
+          "title": "2) 辅音字母（其余 21 个）",
+          "rules": [
+            { "letter": "B", "description": "/b/（bad, bag）" },
+            { "letter": "C", "description": "a/o/u 后 /k/（cap）；e/i/y 后 /s/（cell）；双写 /ks/（accept）；后接 ia/io 发 /ʃ/（social）。" },
+            { "letter": "D", "description": "/d/（duck, doctor）" },
+            { "letter": "F", "description": "/f/（fat, fan）" },
+            { "letter": "G", "description": "e/i/y 后 /dʒ/（gentle）；否则 /ɡ/（bag）" },
+            { "letter": "H", "description": "/h/（head, hand）" },
+            { "letter": "J", "description": "/dʒ/（jam, jeep）" },
+            { "letter": "K", "description": "/k/（kiss, kick）" },
+            { "letter": "L", "description": "/l/（last, leg）" },
+            { "letter": "M", "description": "/m/（map, man）" },
+            { "letter": "N", "description": "/n/（net, nick）" },
+            { "letter": "P", "description": "/p/（pig, pop）" },
+            { "letter": "Q", "description": "qu 发 /kw/（quick）；词尾发 /k/（unique）" },
+            { "letter": "R", "description": "/r/（rat, red）" },
+            { "letter": "S", "description": "清辅音前 /s/（best）；浊辅音/元音前 /z/（husband）；特殊 /ʃ/（sure）或 /ʒ/（usual）。" },
+            { "letter": "T", "description": "一般 /t/；后接 ia/ie/io 发 /ʃ/（initial）；特例不发音（often）。" },
+            { "letter": "V", "description": "/v/（very, value）" },
+            { "letter": "W", "description": "/w/（wet, win）" },
+            { "letter": "X", "description": "/ks/（box, fox）" },
+            { "letter": "Y", "description": "作辅音 /j/（yes）；作元音 /ɪ/（city）" },
+            { "letter": "Z", "description": "/z/（zip, zebra）" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vowel-combinations",
+      "title": "二、元音字母组合拼读规则",
+      "color": "emerald",
+      "rules": [
+        { "combination": "er", "sounds": "重读 /ɜː/（term），非重读 /ə/（teacher）" },
+        { "combination": "ee", "sounds": "/iː/（week），特例 /eɪ/（break）" },
+        { "combination": "ea", "sounds": "/iː/（teach）、/e/（weather）、/eɪ/（eight）" },
+        { "combination": "ei", "sounds": "/eɪ/（they）、/iː/（seize）" },
+        { "combination": "ey", "sounds": "/iː/（key）、/eɪ/（they）、/ɪ/（monkey）" },
+        { "combination": "ew", "sounds": "/uː/（flew）、/juː/（few）" },
+        { "combination": "ear", "sounds": "/ɪə/（hear）、/eə/（bear）、/ɜː/（earth）" },
+        { "combination": "ere", "sounds": "/ɪə/（here）、/eə/（there）" },
+        { "combination": "eer", "sounds": "/ɪə/（deer）" },
+        { "combination": "oa", "sounds": "/əʊ/（boat）" },
+        { "combination": "ow", "sounds": "/əʊ/（know）、/aʊ/（how）" },
+        { "combination": "ou", "sounds": "/aʊ/（house）、/uː/（soup）、/ʌ/（enough）" },
+        { "combination": "or", "sounds": "/ɔː/（short）、/ɜː/（world）、/ə/（doctor）" },
+        { "combination": "oi/oy", "sounds": "/ɔɪ/（oil, boy）" },
+        { "combination": "oo", "sounds": "/uː/（roof）、/ʊ/（look），特例 /ʌ/（blood）" },
+        { "combination": "ore", "sounds": "/ɔː/（store）" },
+        { "combination": "oar", "sounds": "/ɔː/（board）" },
+        { "combination": "our", "sounds": "/ɔː/（four）、/aʊə/（our）、/ə/（hour）" }
+      ]
+    },
+    {
+      "id": "consonant-combinations",
+      "title": "三、辅音字母组合拼读规则",
+      "color": "amber",
+      "rules": [
+        { "combination": "ch", "sounds": "多为 /tʃ/（cheese），少数 /k/（school）；tch /tʃ/（watch）" },
+        { "combination": "sh", "sounds": "/ʃ/（fish）" },
+        { "combination": "th", "sounds": "名词/数词 /θ/（thing）；动词/形容词 /ð/（that）；在 who 后 /h/" },
+        { "combination": "wh", "sounds": "o 前 /h/（who）；其他 /w/（why）" },
+        { "combination": "gh/ph", "sounds": "/f/（rough, photo）" },
+        { "combination": "bl/cl/fl/gl/pl/sl", "sounds": "/bl/、/kl/、/fl/、/gl/、/pl/、/sl/" },
+        { "combination": "br/pr/cr/fr", "sounds": "/br/、/pr/、/kr/、/fr/" },
+        { "combination": "dr/gr/tr", "sounds": "/dr/、/gr/、/tr/" },
+        { "combination": "sc/sk", "sounds": "/sk/（scarf, sky）" },
+        { "combination": "sm/sn/sp/spr/st/str/sw", "sounds": "/sm/、/sn/、/sp/、/spr/、/st/、/str/、/sw/" },
+        { "combination": "tw/kw/dw/gw", "sounds": "/tw/（twelve）、/kw/（awkward）、/dw/（dwell）、/ɡw/（gwen）" },
+        { "combination": "my/ny/ty/ry/re", "sounds": "/maɪ/（my）、/ni/（funny）、/ti/（party）、/ri/（sorry）、/r/（fire）" }
+      ]
+    },
+    {
+      "id": "syllables-stress",
+      "title": "四、音节与重读规则",
+      "color": "indigo",
+      "subsections": [
+        {
+          "title": "音节分类",
+          "rules": [
+            { "type": "绝对开音节", "description": "元音结尾，如 bee /biː/" },
+            { "type": "相对开音节", "description": "元+辅+e，如 name /neɪm/" },
+            { "type": "闭音节", "description": "辅音结尾，如 bag /bæɡ/" }
+          ]
+        },
+        {
+          "title": "重读规则",
+          "rules": [
+            { "rule": "单音节词直接重读，如 bird /bɜːd/" },
+            { "rule": "双音节词：动词重读第二音节（relate /rɪ'leɪt/），名词重读第一音节（student /'stjuːdnt/）；含 ac-/ad-/com- 等词缀的动词重读第二音节" },
+            { "rule": "多音节词：常重读倒数第三个音节，如 internationally /ˌɪntəˈnæʃnəli/" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonetic-symbols",
+      "title": "五、48个国际音标规则",
+      "color": "emerald",
+      "phonetics": {
+        "vowels": {
+          "title": "元音（20 个）",
+          "categories": [
+            { "type": "短元音", "symbols": "/ɪ/ /e/ /æ/ /ɒ/ /ʊ/ /ʌ/ /ə/" },
+            { "type": "长元音", "symbols": "/ɑː/ /ɔː/ /ɜː/ /iː/ /uː/" },
+            { "type": "双元音", "symbols": "/eɪ/ /aɪ/ /ɔɪ/ /əʊ/ /aʊ/ /ɪə/ /eə/ /ʊə/" }
+          ]
+        },
+        "consonants": {
+          "title": "辅音（28 个）",
+          "categories": [
+            { "type": "清辅音", "symbols": "/p/ /t/ /k/ /f/ /s/ /θ/ /ʃ/ /h/ /tr/ /ts/ /tʃ/" },
+            { "type": "浊辅音", "symbols": "/b/ /d/ /ɡ/ /v/ /z/ /ð/ /ʒ/ /r/ /dr/ /dz/ /dʒ/" },
+            { "type": "鼻音", "symbols": "/m/ /n/ /ŋ/" },
+            { "type": "半元音", "symbols": "/w/ /j/" },
+            { "type": "舌侧音", "symbols": "/l/" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "mixed-combinations",
+      "title": "六、辅元字母组合拼读规则（部分示例）",
+      "color": "amber",
+      "rules": [
+        { "combination": "al", "sounds": "/ɔː/（chalk）、/ɔːl/（almost）" },
+        { "combination": "aw", "sounds": "/ɔː/（awful）" },
+        { "combination": "ew", "sounds": "/juː/（new）" },
+        { "combination": "ind/ild", "sounds": "/aɪnd/（mind）、/aɪld/（child）" },
+        { "combination": "igh/ign", "sounds": "/aɪ/（light）、/aɪn/（sign）" },
+        { "combination": "ing", "sounds": "/ɪŋ/（doing）" },
+        { "combination": "ow", "sounds": "/aʊ/（down）、/əʊ/（flow）" },
+        { "combination": "ought", "sounds": "/ɔːt/（thought）" },
+        { "combination": "gu", "sounds": "/ɡ/（guard）" },
+        { "combination": "sion/tion", "sounds": "元音后 /ʒn/（television），辅音后 /ʃn/（tension）" },
+        { "combination": "sure/ture", "sounds": "/ʒə/（pleasure）、/tʃə/（future）" }
+      ]
+    }
+  ]
+}
