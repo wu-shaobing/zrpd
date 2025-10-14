@@ -10,6 +10,7 @@ interface GameState {
   cards: CardState[];
   initCards: (ids: string[]) => void;
   flipCard: (id: string) => void;
+  markScored: (id: string) => void;
   resetGame: () => void;
   shuffleCards: () => void;
 }
@@ -24,6 +25,12 @@ export const useGameStore = create<GameState>((set) => ({
     set((state) => ({
       cards: state.cards.map((card) =>
         card.id === id ? { ...card, flipped: !card.flipped } : card
+      ),
+    })),
+  markScored: (id) =>
+    set((state) => ({
+      cards: state.cards.map((card) =>
+        card.id === id ? { ...card, scored: true } : card
       ),
     })),
   resetGame: () =>

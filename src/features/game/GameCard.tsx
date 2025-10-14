@@ -1,6 +1,7 @@
 import { CheckCircle } from 'lucide-react';
 import { useGameStore } from '../../stores/gameStore';
 import { useScoreStore } from '../../stores/scoreStore';
+import { getColorClasses, type ColorName } from '../../utils/colors';
 
 interface GameCardProps {
   card: {
@@ -16,15 +17,20 @@ interface GameCardProps {
 }
 
 export function GameCard({ card, flipped, scored }: GameCardProps) {
-  const flipCard = useGameStore((state) => state.flipCard);
+  const { flipCard, markScored } = useGameStore((state) => ({
+    flipCard: state.flipCard,
+    markScored: state.markScored,
+  }));
   const addScore = useScoreStore((state) => state.addScore);
 
   const handleClick = () => {
+    // Flip the card first
     flipCard(card.id);
-    // First time flipping: add score
+    
+    // First time flipping to back: add score and mark as scored
     if (!flipped && !scored) {
       addScore(card.points);
-      // Mark as scored in store (will be handled by parent)
+      markScored(card.id);
     }
   };
 
@@ -34,6 +40,8 @@ export function GameCard({ card, flipped, scored }: GameCardProps) {
       handleClick();
     }
   };
+
+  const colors = getColorClasses(card.color as ColorName);
 
   return (
     <div
@@ -49,9 +57,9 @@ export function GameCard({ card, flipped, scored }: GameCardProps) {
       {!flipped ? (
         <div className="front">
           <div
-            className={`w-16 h-16 bg-${card.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}
+            className={`w-16 h-16 ${colors.bg100} rounded-full flex items-center justify-center mx-auto mb-4`}
           >
-            <span className={`text-2xl font-bold text-${card.color}-600`}>
+            <span className={`text-2xl font-bold ${colors.text600}`}>
               {card.front}
             </span>
           </div>

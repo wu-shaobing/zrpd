@@ -1,5 +1,6 @@
 import { Type } from 'lucide-react';
 import consonantsData from '../../data/consonants.json';
+import { getColorClasses, type ColorName } from '../../utils/colors';
 
 export function ConsonantsSection() {
   return (
@@ -17,21 +18,24 @@ export function ConsonantsSection() {
       </div>
 
       <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3">
-        {consonantsData.map((consonant) => (
-          <div
-            key={consonant.letter}
-            className="letter-card bg-white rounded-lg p-3 shadow-md text-center"
-          >
+        {consonantsData.map((consonant) => {
+          const colors = getColorClasses(consonant.color as ColorName);
+          return (
             <div
-              className={`w-16 h-16 bg-${consonant.color}-100 rounded-full flex items-center justify-center mx-auto mb-2`}
+              key={consonant.letter}
+              className="letter-card bg-white rounded-lg p-3 shadow-md text-center"
             >
-              <span className={`text-2xl font-bold text-${consonant.color}-500`}>
-                {consonant.letter}
-              </span>
+              <div
+                className={`w-16 h-16 ${colors.bg100} rounded-full flex items-center justify-center mx-auto mb-2`}
+              >
+                <span className={`text-2xl font-bold ${colors.text500}`}>
+                  {consonant.letter}
+                </span>
+              </div>
+              <p className="text-sm">{consonant.ipa}</p>
             </div>
-            <p className="text-sm">{consonant.ipa}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
