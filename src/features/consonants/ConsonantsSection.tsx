@@ -1,8 +1,46 @@
+import { useState } from 'react';
 import { Type } from 'lucide-react';
-import consonantsData from '../../data/consonants.json';
-import { getColorClasses, type ColorName } from '../../utils/colors';
+import { PhonemeGrid } from '../../components/phoneme/PhonemeGrid';
+import { CategoryFilter } from '../../components/phoneme/CategoryFilter';
+import { phonemeService } from '../../services/phonemeService';
+import type { PhonemeCategory } from '../../types/phoneme';
 
 export function ConsonantsSection() {
+  const [activeCategory, setActiveCategory] = useState<PhonemeCategory | 'all'>('all');
+  
+  const allConsonants = phonemeService.getAllConsonants();
+  
+  // 按类别筛选
+  const filteredConsonants =
+    activeCategory === 'all'
+      ? allConsonants
+      : allConsonants.filter((c) => c.category === activeCategory);
+
+  // 统计各类别数量
+  const categories = [
+    { value: 'all' as const, label: '全部辅音', count: allConsonants.length },
+    {
+      value: 'plosive' as PhonemeCategory,
+      label: '爆破音',
+      count: allConsonants.filter((c) => c.category === 'plosive').length,
+    },
+    {
+      value: 'fricative' as PhonemeCategory,
+      label: '摩擦音',
+      count: allConsonants.filter((c) => c.category === 'fricative').length,
+    },
+    {
+      value: 'affricate' as PhonemeCategory,
+      label: '破擦音',
+      count: allConsonants.filter((c) => c.category === 'affricate').length,
+    },
+    {
+      value: 'nasal' as PhonemeCategory,
+      label: '鼻音',
+      count: allConsonants.filter((c) => c.category === 'nasal').length,
+    },
+  ];
+
   return (
     <section className="section mb-16" id="consonants" aria-labelledby="consonants-title">
       <div className="flex items-center mb-8">
@@ -12,31 +50,33 @@ export function ConsonantsSection() {
         >
           <Type />
         </div>
-        <h2 id="consonants-title" className="text-2xl md:text-3xl font-bold">
-          辅音字母发音
-        </h2>
+        <div>
+          <h2 id="consonants-title" className="text-2xl md:text-3xl font-bold">
+            辅音音标
+          </h2>
+          <p className="text-sm text-gray-600 mt-1">
+            共 {allConsonants.length} 个辅音音标，包括爆破音、摩擦音、破擦音、鼻音等
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3">
-        {consonantsData.map((consonant) => {
-          const colors = getColorClasses(consonant.color as ColorName);
-          return (
-            <div
-              key={consonant.letter}
-              className="letter-card bg-white rounded-lg p-3 shadow-md text-center"
-            >
-              <div
-                className={`w-16 h-16 ${colors.bg100} rounded-full flex items-center justify-center mx-auto mb-2`}
-              >
-                <span className={`text-2xl font-bold ${colors.text500}`}>
-                  {consonant.letter}
-                </span>
-              </div>
-              <p className="text-sm">{consonant.ipa}</p>
-            </div>
-          );
-        })}
+      {/* 分类筛选 */}
+      <div className="mb-6">
+        <CategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onChange={setActiveCategory}
+        />
       </div>
+
+      {/* 音标网格 */}
+      <PhonemeGrid
+        phonemes={filteredConsonants}
+        variant="default"
+        columns={4}
+        showProgress={true}
+        emptyMessage="暂无该类别的辅音音标"
+      />
     </section>
   );
 }

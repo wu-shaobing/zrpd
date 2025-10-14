@@ -1,10 +1,40 @@
-import { Volume2, Languages } from 'lucide-react';
-import { useSpeech } from '../../hooks/useSpeech';
-import vowelsData from '../../data/vowels.json';
-import { getColorClasses, type ColorName } from '../../utils/colors';
+import { useState } from 'react';
+import { Languages } from 'lucide-react';
+import { PhonemeGrid } from '../../components/phoneme/PhonemeGrid';
+import { CategoryFilter } from '../../components/phoneme/CategoryFilter';
+import { phonemeService } from '../../services/phonemeService';
+import type { PhonemeCategory } from '../../types/phoneme';
 
 export function VowelsSection() {
-  const { speak } = useSpeech();
+  const [activeCategory, setActiveCategory] = useState<PhonemeCategory | 'all'>('all');
+  
+  const allVowels = phonemeService.getAllVowels();
+  
+  // 按类别筛选
+  const filteredVowels =
+    activeCategory === 'all'
+      ? allVowels
+      : allVowels.filter((v) => v.category === activeCategory);
+
+  // 统计各类别数量
+  const categories = [
+    { value: 'all' as const, label: '全部元音', count: allVowels.length },
+    {
+      value: 'short_vowel' as PhonemeCategory,
+      label: '短元音',
+      count: allVowels.filter((v) => v.category === 'short_vowel').length,
+    },
+    {
+      value: 'long_vowel' as PhonemeCategory,
+      label: '长元音',
+      count: allVowels.filter((v) => v.category === 'long_vowel').length,
+    },
+    {
+      value: 'diphthong' as PhonemeCategory,
+      label: '双元音',
+      count: allVowels.filter((v) => v.category === 'diphthong').length,
+    },
+  ];
 
   return (
     <section className="section mb-16" id="vowels" aria-labelledby="vowels-title">
@@ -15,49 +45,33 @@ export function VowelsSection() {
         >
           <Languages />
         </div>
-        <h2 id="vowels-title" className="text-2xl md:text-3xl font-bold">
-          元音字母发音
-        </h2>
+        <div>
+          <h2 id="vowels-title" className="text-2xl md:text-3xl font-bold">
+            元音音标
+          </h2>
+          <p className="text-sm text-gray-600 mt-1">
+            共 {allVowels.length} 个元音音标，包括短元音、长元音和双元音
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {vowelsData.map((vowel) => {
-          const colors = getColorClasses(vowel.color as ColorName);
-          return (
-            <div
-              key={vowel.letter}
-              className="letter-card bg-white rounded-xl p-4 shadow-md text-center"
-            >
-              <div
-                className={`w-20 h-20 ${colors.bg100} rounded-full flex items-center justify-center mx-auto mb-3`}
-              >
-                <span className={`text-3xl font-bold ${colors.text500}`}>
-                  {vowel.letter}
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{vowel.ipa}</h3>
-              <p className="text-sm text-gray-600">{vowel.examples.join(', ')}</p>
-              <button
-                className="mt-2 text-indigo-600 text-sm hover:underline flex items-center justify-center gap-1 mx-auto"
-                onClick={() => speak(vowel.examples.join(', '))}
-                aria-label={`播放 ${vowel.letter} 发音示例`}
-              >
-                <Volume2 size={16} aria-hidden="true" />
-                听发音
-              </button>
-            </div>
-          );
-        })}
+      {/* 分类筛选 */}
+      <div className="mb-6">
+        <CategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onChange={setActiveCategory}
+        />
       </div>
 
-      <div className="mt-8 text-center">
-        <a
-          href="#"
-          className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-medium transition-colors"
-        >
-          查看更多元音发音规则 →
-        </a>
-      </div>
+      {/* 音标网格 */}
+      <PhonemeGrid
+        phonemes={filteredVowels}
+        variant="default"
+        columns={4}
+        showProgress={true}
+        emptyMessage="暂无该类别的元音音标"
+      />
     </section>
   );
 }
