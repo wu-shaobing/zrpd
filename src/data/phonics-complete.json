@@ -1,0 +1,1201 @@
+{
+  "metadata": {
+    "version": "2.0.0",
+    "lastUpdated": "2025-10-14",
+    "totalPhonemes": 48,
+    "categories": {
+      "vowels": {
+        "monophthongs": 12,
+        "diphthongs": 8
+      },
+      "consonants": 28
+    }
+  },
+  "levels": [
+    {
+      "id": 1,
+      "name": "基础音标",
+      "description": "最常见的音标，适合初学者",
+      "color": "#10B981",
+      "icon": "🌱",
+      "requiredScore": 0
+    },
+    {
+      "id": 2,
+      "name": "进阶音标",
+      "description": "需要更多练习的音标",
+      "color": "#3B82F6",
+      "icon": "🌿",
+      "requiredScore": 200
+    },
+    {
+      "id": 3,
+      "name": "高级音标",
+      "description": "复杂的音标组合",
+      "color": "#8B5CF6",
+      "icon": "🌳",
+      "requiredScore": 500
+    }
+  ],
+  "vowels": {
+    "monophthongs": {
+      "short": [
+        {
+          "id": "v1",
+          "symbol": "ɪ",
+          "name": "短元音 i",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "短促的'衣'音",
+            "tips": "嘴唇微微张开，舌尖抵下齿",
+            "mouthShape": "半闭合",
+            "tonguePosition": "前高"
+          },
+          "examples": [
+            {"word": "bit", "translation": "一点", "phonetic": "/bɪt/", "audio": "bit.mp3"},
+            {"word": "fish", "translation": "鱼", "phonetic": "/fɪʃ/", "audio": "fish.mp3"},
+            {"word": "listen", "translation": "听", "phonetic": "/ˈlɪsən/", "audio": "listen.mp3"}
+          ],
+          "commonMistakes": ["不要发成长音/i:/", "注意与汉语'衣'的区别"],
+          "practiceWords": ["sit", "hit", "miss", "quick", "simple"],
+          "difficulty": 1
+        },
+        {
+          "id": "v2",
+          "symbol": "e",
+          "name": "短元音 e",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "类似'哎'的前半部分",
+            "tips": "嘴半张，舌身放平",
+            "mouthShape": "半开",
+            "tonguePosition": "前中"
+          },
+          "examples": [
+            {"word": "bed", "translation": "床", "phonetic": "/bed/", "audio": "bed.mp3"},
+            {"word": "red", "translation": "红色", "phonetic": "/red/", "audio": "red.mp3"},
+            {"word": "better", "translation": "更好", "phonetic": "/ˈbetər/", "audio": "better.mp3"}
+          ],
+          "commonMistakes": ["不要发成/æ/", "保持嘴型稳定"],
+          "practiceWords": ["pen", "ten", "men", "when", "help"],
+          "difficulty": 1
+        },
+        {
+          "id": "v3",
+          "symbol": "æ",
+          "name": "短元音 æ",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "介于'啊'和'哎'之间",
+            "tips": "嘴张大，舌身放平并略向前",
+            "mouthShape": "大开",
+            "tonguePosition": "前低"
+          },
+          "examples": [
+            {"word": "cat", "translation": "猫", "phonetic": "/kæt/", "audio": "cat.mp3"},
+            {"word": "apple", "translation": "苹果", "phonetic": "/ˈæpəl/", "audio": "apple.mp3"},
+            {"word": "happy", "translation": "快乐", "phonetic": "/ˈhæpi/", "audio": "happy.mp3"}
+          ],
+          "commonMistakes": ["嘴要张大", "不要发成/e/"],
+          "practiceWords": ["bat", "map", "bag", "hand", "black"],
+          "difficulty": 1
+        },
+        {
+          "id": "v4",
+          "symbol": "ʌ",
+          "name": "短元音 ʌ",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "短促的'啊'",
+            "tips": "嘴微张，舌身放松",
+            "mouthShape": "半开",
+            "tonguePosition": "中央"
+          },
+          "examples": [
+            {"word": "cup", "translation": "杯子", "phonetic": "/kʌp/", "audio": "cup.mp3"},
+            {"word": "love", "translation": "爱", "phonetic": "/lʌv/", "audio": "love.mp3"},
+            {"word": "mother", "translation": "母亲", "phonetic": "/ˈmʌðər/", "audio": "mother.mp3"}
+          ],
+          "commonMistakes": ["不要发得太长", "保持轻松自然"],
+          "practiceWords": ["sun", "run", "fun", "but", "luck"],
+          "difficulty": 1
+        },
+        {
+          "id": "v5",
+          "symbol": "ɒ",
+          "name": "短元音 ɒ",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "短促圆唇的'奥'",
+            "tips": "双唇收圆，嘴张大",
+            "mouthShape": "圆形大开",
+            "tonguePosition": "后低"
+          },
+          "examples": [
+            {"word": "hot", "translation": "热", "phonetic": "/hɒt/", "audio": "hot.mp3"},
+            {"word": "dog", "translation": "狗", "phonetic": "/dɒɡ/", "audio": "dog.mp3"},
+            {"word": "coffee", "translation": "咖啡", "phonetic": "/ˈkɒfi/", "audio": "coffee.mp3"}
+          ],
+          "commonMistakes": ["注意圆唇", "英式发音特征"],
+          "practiceWords": ["pot", "lot", "stop", "box", "clock"],
+          "difficulty": 2
+        },
+        {
+          "id": "v6",
+          "symbol": "ʊ",
+          "name": "短元音 ʊ",
+          "level": 1,
+          "category": "short_vowel",
+          "pronunciation": {
+            "cn": "短促的'乌'",
+            "tips": "双唇微圆，舌后部抬高",
+            "mouthShape": "小圆形",
+            "tonguePosition": "后高"
+          },
+          "examples": [
+            {"word": "book", "translation": "书", "phonetic": "/bʊk/", "audio": "book.mp3"},
+            {"word": "good", "translation": "好", "phonetic": "/ɡʊd/", "audio": "good.mp3"},
+            {"word": "could", "translation": "能够", "phonetic": "/kʊd/", "audio": "could.mp3"}
+          ],
+          "commonMistakes": ["不要发成长音/u:/", "保持短促"],
+          "practiceWords": ["look", "foot", "cook", "wood", "pull"],
+          "difficulty": 2
+        }
+      ],
+      "long": [
+        {
+          "id": "v7",
+          "symbol": "iː",
+          "name": "长元音 i:",
+          "level": 1,
+          "category": "long_vowel",
+          "pronunciation": {
+            "cn": "拉长的'衣'",
+            "tips": "嘴唇展开成微笑状，舌尖抵下齿",
+            "mouthShape": "展开微笑",
+            "tonguePosition": "前高"
+          },
+          "examples": [
+            {"word": "see", "translation": "看见", "phonetic": "/siː/", "audio": "see.mp3"},
+            {"word": "tea", "translation": "茶", "phonetic": "/tiː/", "audio": "tea.mp3"},
+            {"word": "believe", "translation": "相信", "phonetic": "/bɪˈliːv/", "audio": "believe.mp3"}
+          ],
+          "commonMistakes": ["要保持足够的长度", "嘴型要展开"],
+          "practiceWords": ["tree", "free", "meet", "need", "green"],
+          "difficulty": 1
+        },
+        {
+          "id": "v8",
+          "symbol": "ɜː",
+          "name": "长元音 ɜ:",
+          "level": 2,
+          "category": "long_vowel",
+          "pronunciation": {
+            "cn": "类似'呃'的长音",
+            "tips": "舌身平放，嘴微张",
+            "mouthShape": "半开",
+            "tonguePosition": "中央"
+          },
+          "examples": [
+            {"word": "bird", "translation": "鸟", "phonetic": "/bɜːd/", "audio": "bird.mp3"},
+            {"word": "work", "translation": "工作", "phonetic": "/wɜːk/", "audio": "work.mp3"},
+            {"word": "learn", "translation": "学习", "phonetic": "/lɜːn/", "audio": "learn.mp3"}
+          ],
+          "commonMistakes": ["舌位要在中间", "不要卷舌（美式除外）"],
+          "practiceWords": ["turn", "hurt", "nurse", "first", "world"],
+          "difficulty": 2
+        },
+        {
+          "id": "v9",
+          "symbol": "ɑː",
+          "name": "长元音 ɑ:",
+          "level": 1,
+          "category": "long_vowel",
+          "pronunciation": {
+            "cn": "拉长的'啊'",
+            "tips": "嘴张大，舌身放低",
+            "mouthShape": "大开",
+            "tonguePosition": "后低"
+          },
+          "examples": [
+            {"word": "car", "translation": "汽车", "phonetic": "/kɑː/", "audio": "car.mp3"},
+            {"word": "father", "translation": "父亲", "phonetic": "/ˈfɑːðər/", "audio": "father.mp3"},
+            {"word": "class", "translation": "班级", "phonetic": "/klɑːs/", "audio": "class.mp3"}
+          ],
+          "commonMistakes": ["嘴要张大", "保持足够长度"],
+          "practiceWords": ["star", "park", "dark", "half", "laugh"],
+          "difficulty": 1
+        },
+        {
+          "id": "v10",
+          "symbol": "ɔː",
+          "name": "长元音 ɔ:",
+          "level": 2,
+          "category": "long_vowel",
+          "pronunciation": {
+            "cn": "拉长圆唇的'奥'",
+            "tips": "双唇收圆，向前突出",
+            "mouthShape": "圆形",
+            "tonguePosition": "后中"
+          },
+          "examples": [
+            {"word": "door", "translation": "门", "phonetic": "/dɔː/", "audio": "door.mp3"},
+            {"word": "ball", "translation": "球", "phonetic": "/bɔːl/", "audio": "ball.mp3"},
+            {"word": "August", "translation": "八月", "phonetic": "/ˈɔːɡəst/", "audio": "august.mp3"}
+          ],
+          "commonMistakes": ["要保持圆唇", "注意长度"],
+          "practiceWords": ["tall", "walk", "call", "small", "morning"],
+          "difficulty": 2
+        },
+        {
+          "id": "v11",
+          "symbol": "uː",
+          "name": "长元音 u:",
+          "level": 1,
+          "category": "long_vowel",
+          "pronunciation": {
+            "cn": "拉长的'乌'",
+            "tips": "双唇收圆并前突，舌后部高抬",
+            "mouthShape": "小圆形前突",
+            "tonguePosition": "后高"
+          },
+          "examples": [
+            {"word": "moon", "translation": "月亮", "phonetic": "/muːn/", "audio": "moon.mp3"},
+            {"word": "blue", "translation": "蓝色", "phonetic": "/bluː/", "audio": "blue.mp3"},
+            {"word": "school", "translation": "学校", "phonetic": "/skuːl/", "audio": "school.mp3"}
+          ],
+          "commonMistakes": ["双唇要收圆", "保持足够长度"],
+          "practiceWords": ["food", "cool", "room", "soon", "true"],
+          "difficulty": 1
+        },
+        {
+          "id": "v12",
+          "symbol": "ə",
+          "name": "中性元音 ə",
+          "level": 2,
+          "category": "neutral_vowel",
+          "pronunciation": {
+            "cn": "轻读的'呃'",
+            "tips": "最放松的元音，舌身自然放平",
+            "mouthShape": "自然微开",
+            "tonguePosition": "中央"
+          },
+          "examples": [
+            {"word": "about", "translation": "关于", "phonetic": "/əˈbaʊt/", "audio": "about.mp3"},
+            {"word": "teacher", "translation": "老师", "phonetic": "/ˈtiːtʃər/", "audio": "teacher.mp3"},
+            {"word": "banana", "translation": "香蕉", "phonetic": "/bəˈnɑːnə/", "audio": "banana.mp3"}
+          ],
+          "commonMistakes": ["最常见的弱读音", "不要读得太重"],
+          "practiceWords": ["away", "again", "police", "support", "survive"],
+          "difficulty": 2
+        }
+      ]
+    },
+    "diphthongs": [
+      {
+        "id": "v13",
+        "symbol": "eɪ",
+        "name": "双元音 eɪ",
+        "level": 1,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'哎'滑到'衣'",
+          "tips": "舌位从前中滑向前高",
+          "mouthShape": "从半开到半闭",
+          "tonguePosition": "前中→前高"
+        },
+        "examples": [
+          {"word": "day", "translation": "天", "phonetic": "/deɪ/", "audio": "day.mp3"},
+          {"word": "make", "translation": "制作", "phonetic": "/meɪk/", "audio": "make.mp3"},
+          {"word": "great", "translation": "伟大", "phonetic": "/ɡreɪt/", "audio": "great.mp3"}
+        ],
+        "commonMistakes": ["要有明显的滑动", "不要发成单元音"],
+        "practiceWords": ["say", "way", "play", "name", "face"],
+        "difficulty": 1
+      },
+      {
+        "id": "v14",
+        "symbol": "aɪ",
+        "name": "双元音 aɪ",
+        "level": 1,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'啊'滑到'衣'",
+          "tips": "舌位从低滑向前高",
+          "mouthShape": "从大开到半闭",
+          "tonguePosition": "央低→前高"
+        },
+        "examples": [
+          {"word": "time", "translation": "时间", "phonetic": "/taɪm/", "audio": "time.mp3"},
+          {"word": "like", "translation": "喜欢", "phonetic": "/laɪk/", "audio": "like.mp3"},
+          {"word": "night", "translation": "夜晚", "phonetic": "/naɪt/", "audio": "night.mp3"}
+        ],
+        "commonMistakes": ["起始音要饱满", "滑动要自然"],
+        "practiceWords": ["fly", "cry", "sky", "buy", "write"],
+        "difficulty": 1
+      },
+      {
+        "id": "v15",
+        "symbol": "ɔɪ",
+        "name": "双元音 ɔɪ",
+        "level": 2,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'奥'滑到'衣'",
+          "tips": "从圆唇滑向展唇",
+          "mouthShape": "从圆形到展开",
+          "tonguePosition": "后中→前高"
+        },
+        "examples": [
+          {"word": "boy", "translation": "男孩", "phonetic": "/bɔɪ/", "audio": "boy.mp3"},
+          {"word": "voice", "translation": "声音", "phonetic": "/vɔɪs/", "audio": "voice.mp3"},
+          {"word": "enjoy", "translation": "享受", "phonetic": "/ɪnˈdʒɔɪ/", "audio": "enjoy.mp3"}
+        ],
+        "commonMistakes": ["开始要圆唇", "结尾要展唇"],
+        "practiceWords": ["toy", "joy", "coin", "noise", "choice"],
+        "difficulty": 2
+      },
+      {
+        "id": "v16",
+        "symbol": "əʊ",
+        "name": "双元音 əʊ",
+        "level": 1,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'呃'滑到'乌'",
+          "tips": "舌位从中央滑向后高",
+          "mouthShape": "从自然到圆唇",
+          "tonguePosition": "中央→后高"
+        },
+        "examples": [
+          {"word": "go", "translation": "去", "phonetic": "/ɡəʊ/", "audio": "go.mp3"},
+          {"word": "home", "translation": "家", "phonetic": "/həʊm/", "audio": "home.mp3"},
+          {"word": "phone", "translation": "电话", "phonetic": "/fəʊn/", "audio": "phone.mp3"}
+        ],
+        "commonMistakes": ["英式发音特征", "美式为/oʊ/"],
+        "practiceWords": ["no", "show", "know", "road", "boat"],
+        "difficulty": 1
+      },
+      {
+        "id": "v17",
+        "symbol": "aʊ",
+        "name": "双元音 aʊ",
+        "level": 1,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'啊'滑到'乌'",
+          "tips": "从开口滑向圆唇",
+          "mouthShape": "从大开到圆形",
+          "tonguePosition": "央低→后高"
+        },
+        "examples": [
+          {"word": "now", "translation": "现在", "phonetic": "/naʊ/", "audio": "now.mp3"},
+          {"word": "house", "translation": "房子", "phonetic": "/haʊs/", "audio": "house.mp3"},
+          {"word": "about", "translation": "关于", "phonetic": "/əˈbaʊt/", "audio": "about.mp3"}
+        ],
+        "commonMistakes": ["嘴型变化要明显", "结尾要圆唇"],
+        "practiceWords": ["how", "down", "brown", "cloud", "mouth"],
+        "difficulty": 1
+      },
+      {
+        "id": "v18",
+        "symbol": "ɪə",
+        "name": "双元音 ɪə",
+        "level": 2,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'衣'滑到'呃'",
+          "tips": "从前高滑向中央",
+          "mouthShape": "从半闭到半开",
+          "tonguePosition": "前高→中央"
+        },
+        "examples": [
+          {"word": "here", "translation": "这里", "phonetic": "/hɪə/", "audio": "here.mp3"},
+          {"word": "near", "translation": "附近", "phonetic": "/nɪə/", "audio": "near.mp3"},
+          {"word": "idea", "translation": "想法", "phonetic": "/aɪˈdɪə/", "audio": "idea.mp3"}
+        ],
+        "commonMistakes": ["英式发音特征", "美式常为/ɪr/"],
+        "practiceWords": ["ear", "clear", "fear", "dear", "year"],
+        "difficulty": 3
+      },
+      {
+        "id": "v19",
+        "symbol": "eə",
+        "name": "双元音 eə",
+        "level": 2,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'哎'滑到'呃'",
+          "tips": "从前中滑向中央",
+          "mouthShape": "保持半开",
+          "tonguePosition": "前中→中央"
+        },
+        "examples": [
+          {"word": "where", "translation": "哪里", "phonetic": "/weə/", "audio": "where.mp3"},
+          {"word": "care", "translation": "关心", "phonetic": "/keə/", "audio": "care.mp3"},
+          {"word": "hair", "translation": "头发", "phonetic": "/heə/", "audio": "hair.mp3"}
+        ],
+        "commonMistakes": ["英式发音特征", "美式常为/er/"],
+        "practiceWords": ["air", "fair", "share", "there", "wear"],
+        "difficulty": 3
+      },
+      {
+        "id": "v20",
+        "symbol": "ʊə",
+        "name": "双元音 ʊə",
+        "level": 3,
+        "category": "diphthong",
+        "pronunciation": {
+          "cn": "从'乌'滑到'呃'",
+          "tips": "从后高滑向中央",
+          "mouthShape": "从圆形到自然",
+          "tonguePosition": "后高→中央"
+        },
+        "examples": [
+          {"word": "tour", "translation": "旅行", "phonetic": "/tʊə/", "audio": "tour.mp3"},
+          {"word": "sure", "translation": "确定", "phonetic": "/ʃʊə/", "audio": "sure.mp3"},
+          {"word": "pure", "translation": "纯净", "phonetic": "/pjʊə/", "audio": "pure.mp3"}
+        ],
+        "commonMistakes": ["较少使用", "美式常简化为/ʊr/"],
+        "practiceWords": ["cure", "during", "europe", "poor", "moor"],
+        "difficulty": 3
+      }
+    ]
+  },
+  "consonants": {
+    "plosives": [
+      {
+        "id": "c1",
+        "symbol": "p",
+        "name": "清辅音 p",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "双唇爆破音",
+          "tips": "双唇紧闭后突然打开，送气",
+          "articulationPoint": "双唇",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "pen", "translation": "笔", "phonetic": "/pen/", "audio": "pen.mp3"},
+          {"word": "apple", "translation": "苹果", "phonetic": "/ˈæpəl/", "audio": "apple.mp3"},
+          {"word": "stop", "translation": "停止", "phonetic": "/stɒp/", "audio": "stop.mp3"}
+        ],
+        "commonMistakes": ["送气要充分", "词尾要轻"],
+        "practiceWords": ["put", "people", "help", "paper", "happy"],
+        "difficulty": 1
+      },
+      {
+        "id": "c2",
+        "symbol": "b",
+        "name": "浊辅音 b",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "双唇爆破音",
+          "tips": "双唇紧闭后打开，声带振动",
+          "articulationPoint": "双唇",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "boy", "translation": "男孩", "phonetic": "/bɔɪ/", "audio": "boy.mp3"},
+          {"word": "baby", "translation": "婴儿", "phonetic": "/ˈbeɪbi/", "audio": "baby.mp3"},
+          {"word": "job", "translation": "工作", "phonetic": "/dʒɒb/", "audio": "job.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "不要送气"],
+        "practiceWords": ["big", "book", "about", "number", "club"],
+        "difficulty": 1
+      },
+      {
+        "id": "c3",
+        "symbol": "t",
+        "name": "清辅音 t",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "舌尖爆破音",
+          "tips": "舌尖抵上齿龈，突然放开",
+          "articulationPoint": "齿龈",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "tea", "translation": "茶", "phonetic": "/tiː/", "audio": "tea.mp3"},
+          {"word": "water", "translation": "水", "phonetic": "/ˈwɔːtər/", "audio": "water.mp3"},
+          {"word": "cat", "translation": "猫", "phonetic": "/kæt/", "audio": "cat.mp3"}
+        ],
+        "commonMistakes": ["舌位要准确", "美式可能弹舌"],
+        "practiceWords": ["time", "take", "letter", "start", "night"],
+        "difficulty": 1
+      },
+      {
+        "id": "c4",
+        "symbol": "d",
+        "name": "浊辅音 d",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "舌尖爆破音",
+          "tips": "舌尖抵上齿龈，放开时声带振动",
+          "articulationPoint": "齿龈",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "day", "translation": "天", "phonetic": "/deɪ/", "audio": "day.mp3"},
+          {"word": "daddy", "translation": "爸爸", "phonetic": "/ˈdædi/", "audio": "daddy.mp3"},
+          {"word": "good", "translation": "好", "phonetic": "/ɡʊd/", "audio": "good.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "美式可能弹舌"],
+        "practiceWords": ["do", "dog", "under", "middle", "red"],
+        "difficulty": 1
+      },
+      {
+        "id": "c5",
+        "symbol": "k",
+        "name": "清辅音 k",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "舌根爆破音",
+          "tips": "舌根抵软腭，突然放开",
+          "articulationPoint": "软腭",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "cat", "translation": "猫", "phonetic": "/kæt/", "audio": "cat.mp3"},
+          {"word": "key", "translation": "钥匙", "phonetic": "/kiː/", "audio": "key.mp3"},
+          {"word": "book", "translation": "书", "phonetic": "/bʊk/", "audio": "book.mp3"}
+        ],
+        "commonMistakes": ["送气要充分", "位置在舌根"],
+        "practiceWords": ["come", "look", "black", "school", "quick"],
+        "difficulty": 1
+      },
+      {
+        "id": "c6",
+        "symbol": "ɡ",
+        "name": "浊辅音 ɡ",
+        "level": 1,
+        "category": "plosive",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "舌根爆破音",
+          "tips": "舌根抵软腭，放开时声带振动",
+          "articulationPoint": "软腭",
+          "manner": "爆破"
+        },
+        "examples": [
+          {"word": "go", "translation": "去", "phonetic": "/ɡəʊ/", "audio": "go.mp3"},
+          {"word": "good", "translation": "好", "phonetic": "/ɡʊd/", "audio": "good.mp3"},
+          {"word": "big", "translation": "大", "phonetic": "/bɪɡ/", "audio": "big.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "不要送气"],
+        "practiceWords": ["get", "give", "together", "again", "dog"],
+        "difficulty": 1
+      }
+    ],
+    "fricatives": [
+      {
+        "id": "c7",
+        "symbol": "f",
+        "name": "清辅音 f",
+        "level": 1,
+        "category": "fricative",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "唇齿摩擦音",
+          "tips": "上齿轻触下唇，气流摩擦通过",
+          "articulationPoint": "唇齿",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "fish", "translation": "鱼", "phonetic": "/fɪʃ/", "audio": "fish.mp3"},
+          {"word": "coffee", "translation": "咖啡", "phonetic": "/ˈkɒfi/", "audio": "coffee.mp3"},
+          {"word": "life", "translation": "生活", "phonetic": "/laɪf/", "audio": "life.mp3"}
+        ],
+        "commonMistakes": ["上齿要碰下唇", "气流要连续"],
+        "practiceWords": ["face", "find", "after", "before", "half"],
+        "difficulty": 1
+      },
+      {
+        "id": "c8",
+        "symbol": "v",
+        "name": "浊辅音 v",
+        "level": 1,
+        "category": "fricative",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "唇齿摩擦音",
+          "tips": "上齿触下唇，声带振动",
+          "articulationPoint": "唇齿",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "voice", "translation": "声音", "phonetic": "/vɔɪs/", "audio": "voice.mp3"},
+          {"word": "very", "translation": "非常", "phonetic": "/ˈveri/", "audio": "very.mp3"},
+          {"word": "love", "translation": "爱", "phonetic": "/lʌv/", "audio": "love.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "与/f/对应"],
+        "practiceWords": ["visit", "over", "never", "seven", "give"],
+        "difficulty": 1
+      },
+      {
+        "id": "c9",
+        "symbol": "θ",
+        "name": "清辅音 θ",
+        "level": 2,
+        "category": "fricative",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "齿间摩擦音",
+          "tips": "舌尖置于上下齿之间，气流摩擦",
+          "articulationPoint": "齿间",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "think", "translation": "想", "phonetic": "/θɪŋk/", "audio": "think.mp3"},
+          {"word": "bath", "translation": "洗澡", "phonetic": "/bɑːθ/", "audio": "bath.mp3"},
+          {"word": "month", "translation": "月", "phonetic": "/mʌnθ/", "audio": "month.mp3"}
+        ],
+        "commonMistakes": ["舌尖要伸出", "不要发成/s/"],
+        "practiceWords": ["three", "through", "both", "earth", "north"],
+        "difficulty": 3
+      },
+      {
+        "id": "c10",
+        "symbol": "ð",
+        "name": "浊辅音 ð",
+        "level": 2,
+        "category": "fricative",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿间摩擦音",
+          "tips": "舌尖置于齿间，声带振动",
+          "articulationPoint": "齿间",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "this", "translation": "这个", "phonetic": "/ðɪs/", "audio": "this.mp3"},
+          {"word": "mother", "translation": "母亲", "phonetic": "/ˈmʌðər/", "audio": "mother.mp3"},
+          {"word": "breathe", "translation": "呼吸", "phonetic": "/briːð/", "audio": "breathe.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "不要发成/z/或/d/"],
+        "practiceWords": ["that", "there", "father", "weather", "together"],
+        "difficulty": 3
+      },
+      {
+        "id": "c11",
+        "symbol": "s",
+        "name": "清辅音 s",
+        "level": 1,
+        "category": "fricative",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "齿龈摩擦音",
+          "tips": "舌尖接近上齿龈，气流摩擦",
+          "articulationPoint": "齿龈",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "sun", "translation": "太阳", "phonetic": "/sʌn/", "audio": "sun.mp3"},
+          {"word": "nice", "translation": "好的", "phonetic": "/naɪs/", "audio": "nice.mp3"},
+          {"word": "miss", "translation": "想念", "phonetic": "/mɪs/", "audio": "miss.mp3"}
+        ],
+        "commonMistakes": ["舌位要准确", "气流要集中"],
+        "practiceWords": ["see", "sit", "listen", "class", "bus"],
+        "difficulty": 1
+      },
+      {
+        "id": "c12",
+        "symbol": "z",
+        "name": "浊辅音 z",
+        "level": 1,
+        "category": "fricative",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈摩擦音",
+          "tips": "舌尖接近上齿龈，声带振动",
+          "articulationPoint": "齿龈",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "zoo", "translation": "动物园", "phonetic": "/zuː/", "audio": "zoo.mp3"},
+          {"word": "music", "translation": "音乐", "phonetic": "/ˈmjuːzɪk/", "audio": "music.mp3"},
+          {"word": "is", "translation": "是", "phonetic": "/ɪz/", "audio": "is.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "与/s/对应"],
+        "practiceWords": ["zero", "busy", "cheese", "please", "rose"],
+        "difficulty": 1
+      },
+      {
+        "id": "c13",
+        "symbol": "ʃ",
+        "name": "清辅音 ʃ",
+        "level": 2,
+        "category": "fricative",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "后齿龈摩擦音",
+          "tips": "舌身抬起，嘴唇略圆",
+          "articulationPoint": "后齿龈",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "she", "translation": "她", "phonetic": "/ʃiː/", "audio": "she.mp3"},
+          {"word": "fish", "translation": "鱼", "phonetic": "/fɪʃ/", "audio": "fish.mp3"},
+          {"word": "English", "translation": "英语", "phonetic": "/ˈɪŋɡlɪʃ/", "audio": "english.mp3"}
+        ],
+        "commonMistakes": ["舌位比/s/靠后", "嘴唇要略圆"],
+        "practiceWords": ["show", "wish", "nation", "ocean", "push"],
+        "difficulty": 2
+      },
+      {
+        "id": "c14",
+        "symbol": "ʒ",
+        "name": "浊辅音 ʒ",
+        "level": 3,
+        "category": "fricative",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "后齿龈摩擦音",
+          "tips": "舌身抬起，声带振动",
+          "articulationPoint": "后齿龈",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "vision", "translation": "视力", "phonetic": "/ˈvɪʒən/", "audio": "vision.mp3"},
+          {"word": "pleasure", "translation": "愉快", "phonetic": "/ˈpleʒər/", "audio": "pleasure.mp3"},
+          {"word": "usually", "translation": "通常", "phonetic": "/ˈjuːʒuəli/", "audio": "usually.mp3"}
+        ],
+        "commonMistakes": ["较少单独出现", "声带要振动"],
+        "practiceWords": ["measure", "television", "decision", "casual", "garage"],
+        "difficulty": 3
+      },
+      {
+        "id": "c15",
+        "symbol": "h",
+        "name": "清辅音 h",
+        "level": 1,
+        "category": "fricative",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "声门摩擦音",
+          "tips": "气流从声门通过，无阻碍",
+          "articulationPoint": "声门",
+          "manner": "摩擦"
+        },
+        "examples": [
+          {"word": "hot", "translation": "热", "phonetic": "/hɒt/", "audio": "hot.mp3"},
+          {"word": "happy", "translation": "快乐", "phonetic": "/ˈhæpi/", "audio": "happy.mp3"},
+          {"word": "behind", "translation": "在后面", "phonetic": "/bɪˈhaɪnd/", "audio": "behind.mp3"}
+        ],
+        "commonMistakes": ["要有气流", "不要太重"],
+        "practiceWords": ["home", "help", "who", "perhaps", "ahead"],
+        "difficulty": 1
+      }
+    ],
+    "affricates": [
+      {
+        "id": "c16",
+        "symbol": "tʃ",
+        "name": "清辅音 tʃ",
+        "level": 1,
+        "category": "affricate",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "齿龈后破擦音",
+          "tips": "先爆破后摩擦，类似'吃'",
+          "articulationPoint": "后齿龈",
+          "manner": "破擦"
+        },
+        "examples": [
+          {"word": "chair", "translation": "椅子", "phonetic": "/tʃeə/", "audio": "chair.mp3"},
+          {"word": "teach", "translation": "教", "phonetic": "/tiːtʃ/", "audio": "teach.mp3"},
+          {"word": "much", "translation": "很多", "phonetic": "/mʌtʃ/", "audio": "much.mp3"}
+        ],
+        "commonMistakes": ["要有爆破感", "送气要充分"],
+        "practiceWords": ["child", "church", "watch", "kitchen", "catch"],
+        "difficulty": 1
+      },
+      {
+        "id": "c17",
+        "symbol": "dʒ",
+        "name": "浊辅音 dʒ",
+        "level": 1,
+        "category": "affricate",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈后破擦音",
+          "tips": "先爆破后摩擦，声带振动",
+          "articulationPoint": "后齿龈",
+          "manner": "破擦"
+        },
+        "examples": [
+          {"word": "job", "translation": "工作", "phonetic": "/dʒɒb/", "audio": "job.mp3"},
+          {"word": "judge", "translation": "判断", "phonetic": "/dʒʌdʒ/", "audio": "judge.mp3"},
+          {"word": "age", "translation": "年龄", "phonetic": "/eɪdʒ/", "audio": "age.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "与/tʃ/对应"],
+        "practiceWords": ["just", "enjoy", "bridge", "orange", "large"],
+        "difficulty": 1
+      }
+    ],
+    "nasals": [
+      {
+        "id": "c18",
+        "symbol": "m",
+        "name": "鼻音 m",
+        "level": 1,
+        "category": "nasal",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "双唇鼻音",
+          "tips": "双唇闭合，气流从鼻腔通过",
+          "articulationPoint": "双唇",
+          "manner": "鼻音"
+        },
+        "examples": [
+          {"word": "mom", "translation": "妈妈", "phonetic": "/mɒm/", "audio": "mom.mp3"},
+          {"word": "come", "translation": "来", "phonetic": "/kʌm/", "audio": "come.mp3"},
+          {"word": "home", "translation": "家", "phonetic": "/həʊm/", "audio": "home.mp3"}
+        ],
+        "commonMistakes": ["双唇要紧闭", "鼻腔要通畅"],
+        "practiceWords": ["make", "time", "summer", "room", "from"],
+        "difficulty": 1
+      },
+      {
+        "id": "c19",
+        "symbol": "n",
+        "name": "鼻音 n",
+        "level": 1,
+        "category": "nasal",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈鼻音",
+          "tips": "舌尖抵上齿龈，气流从鼻腔通过",
+          "articulationPoint": "齿龈",
+          "manner": "鼻音"
+        },
+        "examples": [
+          {"word": "nice", "translation": "好的", "phonetic": "/naɪs/", "audio": "nice.mp3"},
+          {"word": "sun", "translation": "太阳", "phonetic": "/sʌn/", "audio": "sun.mp3"},
+          {"word": "funny", "translation": "有趣", "phonetic": "/ˈfʌni/", "audio": "funny.mp3"}
+        ],
+        "commonMistakes": ["舌尖要抵齿龈", "鼻音要饱满"],
+        "practiceWords": ["new", "nine", "dinner", "learn", "phone"],
+        "difficulty": 1
+      },
+      {
+        "id": "c20",
+        "symbol": "ŋ",
+        "name": "鼻音 ŋ",
+        "level": 2,
+        "category": "nasal",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "软腭鼻音",
+          "tips": "舌根抵软腭，气流从鼻腔通过",
+          "articulationPoint": "软腭",
+          "manner": "鼻音"
+        },
+        "examples": [
+          {"word": "sing", "translation": "唱", "phonetic": "/sɪŋ/", "audio": "sing.mp3"},
+          {"word": "long", "translation": "长", "phonetic": "/lɒŋ/", "audio": "long.mp3"},
+          {"word": "thinking", "translation": "思考", "phonetic": "/ˈθɪŋkɪŋ/", "audio": "thinking.mp3"}
+        ],
+        "commonMistakes": ["舌根要抵软腭", "不要发成/n/"],
+        "practiceWords": ["king", "young", "strong", "evening", "morning"],
+        "difficulty": 2
+      }
+    ],
+    "liquids": [
+      {
+        "id": "c21",
+        "symbol": "l",
+        "name": "边音 l",
+        "level": 1,
+        "category": "liquid",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈边音",
+          "tips": "舌尖抵上齿龈，气流从舌两侧通过",
+          "articulationPoint": "齿龈",
+          "manner": "边音"
+        },
+        "examples": [
+          {"word": "love", "translation": "爱", "phonetic": "/lʌv/", "audio": "love.mp3"},
+          {"word": "hello", "translation": "你好", "phonetic": "/həˈləʊ/", "audio": "hello.mp3"},
+          {"word": "ball", "translation": "球", "phonetic": "/bɔːl/", "audio": "ball.mp3"}
+        ],
+        "commonMistakes": ["清晰/l/和暗/l/的区别", "舌尖要抵齿龈"],
+        "practiceWords": ["like", "play", "yellow", "child", "pull"],
+        "difficulty": 1
+      },
+      {
+        "id": "c22",
+        "symbol": "r",
+        "name": "近音 r",
+        "level": 2,
+        "category": "liquid",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "后齿龈近音",
+          "tips": "舌尖向上卷起但不触碰",
+          "articulationPoint": "后齿龈",
+          "manner": "近音"
+        },
+        "examples": [
+          {"word": "red", "translation": "红色", "phonetic": "/red/", "audio": "red.mp3"},
+          {"word": "tree", "translation": "树", "phonetic": "/triː/", "audio": "tree.mp3"},
+          {"word": "car", "translation": "汽车", "phonetic": "/kɑː/", "audio": "car.mp3"}
+        ],
+        "commonMistakes": ["美式卷舌，英式不卷", "不要颤音"],
+        "practiceWords": ["run", "bring", "from", "green", "after"],
+        "difficulty": 2
+      }
+    ],
+    "glides": [
+      {
+        "id": "c23",
+        "symbol": "w",
+        "name": "半元音 w",
+        "level": 1,
+        "category": "glide",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "双唇软腭近音",
+          "tips": "双唇收圆，快速滑向元音",
+          "articulationPoint": "双唇-软腭",
+          "manner": "滑音"
+        },
+        "examples": [
+          {"word": "water", "translation": "水", "phonetic": "/ˈwɔːtər/", "audio": "water.mp3"},
+          {"word": "week", "translation": "周", "phonetic": "/wiːk/", "audio": "week.mp3"},
+          {"word": "away", "translation": "离开", "phonetic": "/əˈweɪ/", "audio": "away.mp3"}
+        ],
+        "commonMistakes": ["双唇要圆", "快速滑动"],
+        "practiceWords": ["win", "world", "sweet", "always", "between"],
+        "difficulty": 1
+      },
+      {
+        "id": "c24",
+        "symbol": "j",
+        "name": "半元音 j",
+        "level": 1,
+        "category": "glide",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "硬腭近音",
+          "tips": "舌身抬高，快速滑向元音",
+          "articulationPoint": "硬腭",
+          "manner": "滑音"
+        },
+        "examples": [
+          {"word": "yes", "translation": "是", "phonetic": "/jes/", "audio": "yes.mp3"},
+          {"word": "year", "translation": "年", "phonetic": "/jɪə/", "audio": "year.mp3"},
+          {"word": "music", "translation": "音乐", "phonetic": "/ˈmjuːzɪk/", "audio": "music.mp3"}
+        ],
+        "commonMistakes": ["不是摩擦音", "快速滑动"],
+        "practiceWords": ["you", "yellow", "beautiful", "use", "few"],
+        "difficulty": 1
+      }
+    ],
+    "others": [
+      {
+        "id": "c25",
+        "symbol": "ts",
+        "name": "清辅音 ts",
+        "level": 2,
+        "category": "affricate",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "齿龈破擦音",
+          "tips": "t和s的结合",
+          "articulationPoint": "齿龈",
+          "manner": "破擦"
+        },
+        "examples": [
+          {"word": "cats", "translation": "猫（复数）", "phonetic": "/kæts/", "audio": "cats.mp3"},
+          {"word": "its", "translation": "它的", "phonetic": "/ɪts/", "audio": "its.mp3"},
+          {"word": "students", "translation": "学生们", "phonetic": "/ˈstjuːdənts/", "audio": "students.mp3"}
+        ],
+        "commonMistakes": ["要连贯发音", "常见于复数"],
+        "practiceWords": ["gets", "puts", "seats", "meets", "lists"],
+        "difficulty": 2
+      },
+      {
+        "id": "c26",
+        "symbol": "dz",
+        "name": "浊辅音 dz",
+        "level": 2,
+        "category": "affricate",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈破擦音",
+          "tips": "d和z的结合",
+          "articulationPoint": "齿龈",
+          "manner": "破擦"
+        },
+        "examples": [
+          {"word": "beds", "translation": "床（复数）", "phonetic": "/bedz/", "audio": "beds.mp3"},
+          {"word": "cards", "translation": "卡片（复数）", "phonetic": "/kɑːdz/", "audio": "cards.mp3"},
+          {"word": "friends", "translation": "朋友们", "phonetic": "/frendz/", "audio": "friends.mp3"}
+        ],
+        "commonMistakes": ["声带要振动", "常见于复数"],
+        "practiceWords": ["needs", "reads", "finds", "hands", "birds"],
+        "difficulty": 2
+      },
+      {
+        "id": "c27",
+        "symbol": "tr",
+        "name": "辅音组合 tr",
+        "level": 2,
+        "category": "cluster",
+        "voicing": "voiceless",
+        "pronunciation": {
+          "cn": "齿龈后破擦音组合",
+          "tips": "t和r的组合，类似'戳'",
+          "articulationPoint": "后齿龈",
+          "manner": "破擦+近音"
+        },
+        "examples": [
+          {"word": "tree", "translation": "树", "phonetic": "/triː/", "audio": "tree.mp3"},
+          {"word": "train", "translation": "火车", "phonetic": "/treɪn/", "audio": "train.mp3"},
+          {"word": "country", "translation": "国家", "phonetic": "/ˈkʌntri/", "audio": "country.mp3"}
+        ],
+        "commonMistakes": ["要连贯", "略带摩擦"],
+        "practiceWords": ["try", "true", "street", "strong", "control"],
+        "difficulty": 2
+      },
+      {
+        "id": "c28",
+        "symbol": "dr",
+        "name": "辅音组合 dr",
+        "level": 2,
+        "category": "cluster",
+        "voicing": "voiced",
+        "pronunciation": {
+          "cn": "齿龈后破擦音组合",
+          "tips": "d和r的组合，类似'捉'",
+          "articulationPoint": "后齿龈",
+          "manner": "破擦+近音"
+        },
+        "examples": [
+          {"word": "drink", "translation": "喝", "phonetic": "/drɪŋk/", "audio": "drink.mp3"},
+          {"word": "dream", "translation": "梦", "phonetic": "/driːm/", "audio": "dream.mp3"},
+          {"word": "children", "translation": "孩子们", "phonetic": "/ˈtʃɪldrən/", "audio": "children.mp3"}
+        ],
+        "commonMistakes": ["声带振动", "要连贯"],
+        "practiceWords": ["drive", "drop", "dress", "hundred", "address"],
+        "difficulty": 2
+      }
+    ]
+  },
+  "learningPath": {
+    "stages": [
+      {
+        "id": 1,
+        "name": "基础入门",
+        "description": "掌握最基本的音标",
+        "phonemes": ["v1", "v7", "v9", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c11", "c12", "c18", "c19", "c21"],
+        "goals": ["认识基本音标符号", "掌握发音方法", "能读简单单词"]
+      },
+      {
+        "id": 2,
+        "name": "元音进阶",
+        "description": "学习所有元音",
+        "phonemes": ["v2", "v3", "v4", "v5", "v6", "v8", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17"],
+        "goals": ["区分长短元音", "掌握双元音", "提高元音准确度"]
+      },
+      {
+        "id": 3,
+        "name": "辅音精通",
+        "description": "掌握所有辅音",
+        "phonemes": ["c9", "c10", "c13", "c14", "c15", "c16", "c17", "c20", "c22", "c23", "c24"],
+        "goals": ["掌握摩擦音", "学会破擦音", "精通鼻音边音"]
+      },
+      {
+        "id": 4,
+        "name": "综合提升",
+        "description": "难点音标和组合",
+        "phonemes": ["v18", "v19", "v20", "c25", "c26", "c27", "c28"],
+        "goals": ["掌握特殊双元音", "学习辅音组合", "提高整体流畅度"]
+      }
+    ]
+  },
+  "gameModes": [
+    {
+      "id": "listen_select",
+      "name": "听音选择",
+      "description": "听音标发音，选择正确的符号",
+      "difficulty": 1,
+      "scorePerCorrect": 10
+    },
+    {
+      "id": "symbol_match",
+      "name": "符号配对",
+      "description": "将音标符号与单词配对",
+      "difficulty": 2,
+      "scorePerCorrect": 15
+    },
+    {
+      "id": "word_pronunciation",
+      "name": "单词发音",
+      "description": "看单词，选择正确的音标",
+      "difficulty": 2,
+      "scorePerCorrect": 20
+    },
+    {
+      "id": "minimal_pairs",
+      "name": "最小对立组",
+      "description": "区分相似音标的单词",
+      "difficulty": 3,
+      "scorePerCorrect": 25
+    },
+    {
+      "id": "sentence_practice",
+      "name": "句子练习",
+      "description": "在句子中识别特定音标",
+      "difficulty": 3,
+      "scorePerCorrect": 30
+    }
+  ],
+  "achievements": [
+    {
+      "id": "first_phoneme",
+      "name": "初识音标",
+      "description": "学习第一个音标",
+      "icon": "🎯",
+      "requirement": {"type": "phonemes_learned", "count": 1}
+    },
+    {
+      "id": "vowel_master",
+      "name": "元音大师",
+      "description": "掌握所有元音",
+      "icon": "👑",
+      "requirement": {"type": "category_complete", "category": "vowels"}
+    },
+    {
+      "id": "consonant_expert",
+      "name": "辅音专家",
+      "description": "掌握所有辅音",
+      "icon": "🏆",
+      "requirement": {"type": "category_complete", "category": "consonants"}
+    },
+    {
+      "id": "phonics_champion",
+      "name": "音标冠军",
+      "description": "掌握全部48个音标",
+      "icon": "🌟",
+      "requirement": {"type": "all_complete"}
+    }
+  ]
+}
