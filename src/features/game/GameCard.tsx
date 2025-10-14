@@ -17,10 +17,8 @@ interface GameCardProps {
 }
 
 export function GameCard({ card, flipped, scored }: GameCardProps) {
-  const { flipCard, markScored } = useGameStore((state) => ({
-    flipCard: state.flipCard,
-    markScored: state.markScored,
-  }));
+  const flipCard = useGameStore((state) => state.flipCard);
+  const markScored = useGameStore((state) => state.markScored);
   const addScore = useScoreStore((state) => state.addScore);
 
   const handleClick = () => {

@@ -6,13 +6,17 @@ import gameCardsData from '../../data/game-cards.json';
 import { GameCard } from './GameCard';
 
 export function GameSection() {
-  const { cards, initCards, resetGame, shuffleCards } = useGameStore();
+  const cards = useGameStore((state) => state.cards);
+  const initCards = useGameStore((state) => state.initCards);
+  const resetGame = useGameStore((state) => state.resetGame);
+  const shuffleCards = useGameStore((state) => state.shuffleCards);
   const resetScore = useScoreStore((state) => state.reset);
 
   useEffect(() => {
     initCards(gameCardsData.map((card) => card.id));
     shuffleCards();
-  }, [initCards, shuffleCards]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 只在组件挂载时初始化一次
 
   const handleReset = () => {
     resetGame();
