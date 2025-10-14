@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "自然拼读小课堂",
+  "version": "0.1.0",
+  "identifier": "com.zrpd.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "自然拼读小课堂",
+        "width": 1200,
+        "height": 900,
+        "resizable": true,
+        "fullscreen": false,
+        "minWidth": 800,
+        "minHeight": 600
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "publisher": "ZRPD Team",
+    "copyright": "© 2023-2025 自然拼读小课堂",
+    "category": "Education",
+    "shortDescription": "趣味英语自然拼读学习应用",
+    "longDescription": "一款面向儿童的英语自然拼读互动学习应用，包含元音辅音卡片、字母组合游戏、48个国际音标和完整拼读规则总览。",
+    "macOS": {
+      "minimumSystemVersion": "10.13",
+      "exceptionDomain": ""
+    }
+  },
+  "plugins": {
+    "shell": {
+      "open": false,
+      "scope": [
+        {
+          "name": "say",
+          "cmd": "say",
+          "args": ["-v", "Alex", { "validator": "\\S+" }],
+          "sidecar": false
+        }
+      ]
+    }
+  }
+}

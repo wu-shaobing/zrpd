@@ -1,0 +1,30 @@
+[package]
+name = "zrpd"
+version = "0.1.0"
+description = "自然拼读小课堂 - 趣味英语学习"
+authors = ["ZRPD Team"]
+edition = "2021"
+
+[lib]
+name = "zrpd_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]
+tauri-plugin-shell = "2"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+incremental = false
+opt-level = "s"
+strip = true
