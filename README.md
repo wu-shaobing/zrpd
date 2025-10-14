@@ -24,7 +24,32 @@
 - [DATA_MODEL.md](./DATA_MODEL.md)：数据模型与类型
 - [REFERENCES.md](./REFERENCES.md)：外部参考与链接
 
-## 快速开始（摘要）
+## 快速开始
+
+### 🚀 一键启动（推荐）
+
+**macOS 用户**：双击 `start.command` 文件即可启动项目！
+
+```bash
+# 或在终端运行
+./start.command
+```
+
+**Linux/Windows 用户**：
+```bash
+./start.sh
+# 或
+npm run dev
+```
+
+`start.command` 会自动完成以下操作：
+- ✅ 检查 Node.js 环境
+- ✅ 自动安装/更新依赖
+- ✅ 检查并释放端口 1420
+- ✅ 启动开发服务器
+- ✅ 3秒后自动打开浏览器
+
+### 📋 完整流程（摘要）
 
 1) **安装依赖**：Rust、Node/Bun、Tauri CLI、Xcode CLT（macOS）
 2) **初始化项目**：Vite + React + TS + Tailwind；加入 Tauri 2（对齐端口 1420）
