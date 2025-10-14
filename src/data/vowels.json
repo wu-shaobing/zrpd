@@ -1,0 +1,32 @@
+[
+  {
+    "letter": "A",
+    "color": "red",
+    "ipa": "/æ/",
+    "examples": ["bag", "map"]
+  },
+  {
+    "letter": "E",
+    "color": "yellow",
+    "ipa": "/e/",
+    "examples": ["egg", "best"]
+  },
+  {
+    "letter": "I",
+    "color": "green",
+    "ipa": "/ɪ/",
+    "examples": ["bit", "fit"]
+  },
+  {
+    "letter": "O",
+    "color": "blue",
+    "ipa": "/ɒ/",
+    "examples": ["dog", "lot"]
+  },
+  {
+    "letter": "U",
+    "color": "purple",
+    "ipa": "/ʌ/",
+    "examples": ["bus", "cup"]
+  }
+]

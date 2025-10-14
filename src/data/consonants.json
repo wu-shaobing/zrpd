@@ -1,0 +1,15 @@
+[
+  { "letter": "B", "ipa": "/b/", "color": "pink" },
+  { "letter": "C", "ipa": "/k/ /s/", "color": "indigo" },
+  { "letter": "D", "ipa": "/d/", "color": "teal" },
+  { "letter": "F", "ipa": "/f/", "color": "red" },
+  { "letter": "G", "ipa": "/g/ /dʒ/", "color": "yellow" },
+  { "letter": "H", "ipa": "/h/", "color": "green" },
+  { "letter": "J", "ipa": "/dʒ/", "color": "blue" },
+  { "letter": "K", "ipa": "/k/", "color": "purple" },
+  { "letter": "L", "ipa": "/l/", "color": "pink" },
+  { "letter": "M", "ipa": "/m/", "color": "indigo" },
+  { "letter": "N", "ipa": "/n/", "color": "teal" },
+  { "letter": "P", "ipa": "/p/", "color": "red" },
+  { "letter": "Q", "ipa": "/kw/", "color": "yellow" }
+]

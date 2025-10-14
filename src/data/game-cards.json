@@ -1,0 +1,34 @@
+[
+  {
+    "id": "card-ea",
+    "front": "ea",
+    "ipa": "/iː/",
+    "examples": ["teach", "please"],
+    "points": 5,
+    "color": "indigo"
+  },
+  {
+    "id": "card-ow",
+    "front": "ow",
+    "ipa": "/aʊ/",
+    "examples": ["how", "now"],
+    "points": 5,
+    "color": "emerald"
+  },
+  {
+    "id": "card-ch",
+    "front": "ch",
+    "ipa": "/tʃ/",
+    "examples": ["cheese", "chair"],
+    "points": 5,
+    "color": "amber"
+  },
+  {
+    "id": "card-th",
+    "front": "th",
+    "ipa": "/θ/ /ð/",
+    "examples": ["thing", "that"],
+    "points": 5,
+    "color": "violet"
+  }
+]

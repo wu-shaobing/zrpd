@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自然拼读小课堂 - 趣味英语学习</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4F46E5;
+            --secondary-color: #10B981;
+            --accent-color: #F59E0B;
+            --light-color: #F3F4F6;
+            --dark-color: #1F2937;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 30% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 20%);
+            font-family: 'Comic Sans MS', 'Marker Felt', cursive;
+        }
+        
+        .letter-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .letter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .game-card {
+            transition: all 0.2s ease;
+        }
+        
+        .game-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .animation-delay-1 { animation-delay: 0.1s; }
+        .animation-delay-2 { animation-delay: 0.2s; }
+        .animation-delay-3 { animation-delay: 0.3s; }
+        .animation-delay-4 { animation-delay: 0.4s; }
+        .animation-delay-5 { animation-delay: 0.5s; }
+        
+        .letter-icon {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4F46E5, #10B981);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Accessibility helpers */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Fallbacks for Tailwind gradient utilities using CSS variables */
+        .bg-gradient-to-r.from-primary-color.to-secondary-color {
+            background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        .bg-primary-color { background-color: var(--primary-color); }
+        .bg-secondary-color { background-color: var(--secondary-color); }
+        .bg-accent-color { background-color: var(--accent-color); }
+        .text-primary-color { color: var(--primary-color); }
+        .text-secondary-color { color: var(--secondary-color); }
+        .text-accent-color { color: var(--accent-color); }
+
+        /* Card flip visual polish */
+        .game-card { transform-style: preserve-3d; }
+        .game-card .front, .game-card .back { backface-visibility: hidden; }
+        .game-card.flipped .back { transform: rotateY(0deg); }
+        .game-card .back { transform: rotateY(180deg); }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body class="text-dark-color">
+    <!-- 顶部导航 -->
+    <header class="bg-gradient-to-r from-primary-color to-secondary-color text-white shadow-lg sticky top-0 z-50" role="banner">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-book-reader text-2xl floating" aria-hidden="true"></i>
+                <h1 class="text-2xl md:text-3xl font-bold">自然拼读小课堂</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="progress-bar w-32">
+                    <div class="progress-fill" style="width: 0%" id="progress-fill"></div>
+                </div>
+                <span class="text-sm" id="progress-text">0%</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8" role="main">
+        <!-- 欢迎区域 -->
+        <section class="section mb-12 text-center" aria-labelledby="intro-title">
+            <h2 id="intro-title" class="text-3xl md:text-4xl font-bold text-primary-color mb-4">
+                <i class="fas fa-rainbow mr-2"></i>让英语发音变得有趣！
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                快来探索26个字母的神奇发音规则，跟着小卡片一起学习自然拼读吧！
+            </p>
+            <div class="mt-8 flex justify-center space-x-2">
+                <div class="w-12 h-12 bg-primary-color rounded-full flex items-center justify-center text-white text-xl font-bold shadow-lg">A</div>
+                <div class="w-12 h-12 bg-secondary-color rounded-full flex items-center justify-center text-white text-xl font-bold shadow-lg">B</div>
+                <div class="w-12 h-12 bg-accent-color rounded-full flex items-center justify-center text-white text-xl font-bold shadow-lg">C</div>
+            </div>
+        </section>
+
+        <!-- 元音字母学习 -->
+        <section class="section mb-16" id="vowels" aria-labelledby="vowels-title">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-primary-color rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg" aria-hidden="true">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h2 id="vowels-title" class="text-2xl md:text-3xl font-bold">元音字母发音</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- 元音A -->
+                <div class="letter-card bg-white rounded-xl p-4 shadow-md text-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="letter-icon text-3xl font-bold text-red-500">A</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">/æ/</h3>
+                    <p class="text-sm text-gray-600">bag, map</p>
+                    <button class="mt-2 text-primary-color text-sm hover:underline speak-btn" data-phoneme="/æ/" data-words="bag, map" aria-label="播放 A 发音示例">
+                        <i class="fas fa-volume-up mr-1" aria-hidden="true"></i>听发音
+                    </button>
+                </div>
+                
+                <!-- 元音E -->
+                <div class="letter-card bg-white rounded-xl p-4 shadow-md text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="letter-icon text-3xl font-bold text-yellow-500">E</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">/e/</h3>
+                    <p class="text-sm text-gray-600">egg, best</p>
+                    <button class="mt-2 text-primary-color text-sm hover:underline speak-btn" data-phoneme="/e/" data-words="egg, best" aria-label="播放 E 发音示例">
+                        <i class="fas fa-volume-up mr-1" aria-hidden="true"></i>听发音
+                    </button>
+                </div>
+                
+                <!-- 元音I -->
+                <div class="letter-card bg-white rounded-xl p-4 shadow-md text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="letter-icon text-3xl font-bold text-green-500">I</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">/ɪ/</h3>
+                    <p class="text-sm text-gray-600">bit, fit</p>
+                    <button class="mt-2 text-primary-color text-sm hover:underline speak-btn" data-phoneme="/ɪ/" data-words="bit, fit" aria-label="播放 I 发音示例">
+                        <i class="fas fa-volume-up mr-1" aria-hidden="true"></i>听发音
+                    </button>
+                </div>
+                
+                <!-- 元音O -->
+                <div class="letter-card bg-white rounded-xl p-4 shadow-md text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="letter-icon text-3xl font-bold text-blue-500">O</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">/ɒ/</h3>
+                    <p class="text-sm text-gray-600">dog, lot</p>
+                    <button class="mt-2 text-primary-color text-sm hover:underline speak-btn" data-phoneme="/ɒ/" data-words="dog, lot" aria-label="播放 O 发音示例">
+                        <i class="fas fa-volume-up mr-1" aria-hidden="true"></i>听发音
+                    </button>
+                </div>
+                
+                <!-- 元音U -->
+                <div class="letter-card bg-white rounded-xl p-4 shadow-md text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="letter-icon text-3xl font-bold text-purple-500">U</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">/ʌ/</h3>
+                    <p class="text-sm text-gray-600">bus, cup</p>
+                    <button class="mt-2 text-primary-color text-sm hover:underline speak-btn" data-phoneme="/ʌ/" data-words="bus, cup" aria-label="播放 U 发音示例">
+                        <i class="fas fa-volume-up mr-1" aria-hidden="true"></i>听发音
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#" class="bg-primary-color hover:bg-primary-color/90 text-white px-6 py-3 rounded-full font-medium transition-colors">
+                    查看更多元音发音规则 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 辅音字母学习 -->
+        <section class="section mb-16" id="consonants" aria-labelledby="consonants-title">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-secondary-color rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg" aria-hidden="true">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h2 id="consonants-title" class="text-2xl md:text-3xl font-bold">辅音字母发音</h2>
+            </div>
+            
+            <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3">
+                <!-- 辅音B -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-pink-500">B</span>
+                    </div>
+                    <p class="text-sm">/b/</p>
+                </div>
+                
+                <!-- 辅音C -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-indigo-500">C</span>
+                    </div>
+                    <p class="text-sm">/k/ /s/</p>
+                </div>
+                
+                <!-- 辅音D -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-teal-500">D</span>
+                    </div>
+                    <p class="text-sm">/d/</p>
+                </div>
+                
+                <!-- 辅音F -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-red-500">F</span>
+                    </div>
+                    <p class="text-sm">/f/</p>
+                </div>
+                
+                <!-- 辅音G -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-yellow-500">G</span>
+                    </div>
+                    <p class="text-sm">/g/ /dʒ/</p>
+                </div>
+                
+                <!-- 辅音H -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-green-500">H</span>
+                    </div>
+                    <p class="text-sm">/h/</p>
+                </div>
+                
+                <!-- 辅音J -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-blue-500">J</span>
+                    </div>
+                    <p class="text-sm">/dʒ/</p>
+                </div>
+                
+                <!-- 更多辅音字母... -->
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-purple-500">K</span>
+                    </div>
+                    <p class="text-sm">/k/</p>
+                </div>
+                
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-pink-500">L</span>
+                    </div>
+                    <p class="text-sm">/l/</p>
+                </div>
+                
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-indigo-500">M</span>
+                    </div>
+                    <p class="text-sm">/m/</p>
+                </div>
+                
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-teal-500">N</span>
+                    </div>
+                    <p class="text-sm">/n/</p>
+                </div>
+                
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-red-500">P</span>
+                    </div>
+                    <p class="text-sm">/p/</p>
+                </div>
+                
+                <div class="letter-card bg-white rounded-lg p-3 shadow-md text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span class="letter-icon text-2xl font-bold text-yellow-500">Q</span>
+                    </div>
+                    <p class="text-sm">/kw/</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 字母组合游戏 -->
+        <section class="section mb-16" id="game" aria-labelledby="game-title">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-accent-color rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg">
+                    <i class="fas fa-gamepad" aria-hidden="true"></i>
+                </div>
+                <h2 id="game-title" class="text-2xl md:text-3xl font-bold">趣味拼读游戏</h2>
+            </div>
+            
+            <p class="text-center text-lg text-gray-600 mb-8">
+                试试把字母和对应的发音配对吧！点击卡片翻过来看看是否正确~
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto" id="game-grid">
+                <!-- 游戏卡片1 -->
+                <div class="game-card bg-white rounded-lg p-6 shadow-md text-center cursor-pointer" tabindex="0" data-points="5" aria-label="字母组合 ea 卡片，按空格翻转" onclick="flipCard(this)">
+                    <div class="front">
+                        <div class="w-16 h-16 bg-primary-color/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-primary-color">ea</span>
+                        </div>
+                        <p class="text-gray-500">点击翻卡</p>
+                    </div>
+                    <div class="back hidden text-center">
+                        <p class="text-xl font-semibold mb-2">/iː/</p>
+                        <p class="text-sm text-gray-600">teach, please</p>
+                        <i class="fas fa-check text-green-500 mt-2"></i>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片2 -->
+                <div class="game-card bg-white rounded-lg p-6 shadow-md text-center cursor-pointer" tabindex="0" data-points="5" aria-label="字母组合 ow 卡片，按空格翻转" onclick="flipCard(this)">
+                    <div class="front">
+                        <div class="w-16 h-16 bg-secondary-color/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-secondary-color">ow</span>
+                        </div>
+                        <p class="text-gray-500">点击翻卡</p>
+                    </div>
+                    <div class="back hidden text-center">
+                        <p class="text-xl font-semibold mb-2">/aʊ/</p>
+                        <p class="text-sm text-gray-600">how, now</p>
+                        <i class="fas fa-check text-green-500 mt-2"></i>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片3 -->
+                <div class="game-card bg-white rounded-lg p-6 shadow-md text-center cursor-pointer" tabindex="0" data-points="5" aria-label="字母组合 ch 卡片，按空格翻转" onclick="flipCard(this)">
+                    <div class="front">
+                        <div class="w-16 h-16 bg-accent-color/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-accent-color">ch</span>
+                        </div>
+                        <p class="text-gray-500">点击翻卡</p>
+                    </div>
+                    <div class="back hidden text-center">
+                        <p class="text-xl font-semibold mb-2">/tʃ/</p>
+                        <p class="text-sm text-gray-600">cheese, chair</p>
+                        <i class="fas fa-check text-green-500 mt-2"></i>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片4 -->
+                <div class="game-card bg-white rounded-lg p-6 shadow-md text-center cursor-pointer" tabindex="0" data-points="5" aria-label="字母组合 th 卡片，按空格翻转" onclick="flipCard(this)">
+                    <div class="front">
+                        <div class="w-16 h-16 bg-primary-color/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-primary-color">th</span>
+                        </div>
+                        <p class="text-gray-500">点击翻卡</p>
+                    </div>
+                    <div class="back hidden text-center">
+                        <p class="text-xl font-semibold mb-2">/θ/ /ð/</p>
+                        <p class="text-sm text-gray-600">thing, that</p>
+                        <i class="fas fa-check text-green-500 mt-2"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button id="reset-game" class="bg-secondary-color hover:bg-secondary-color/90 text-white px-6 py-3 rounded-full font-medium transition-colors">
+                    重置游戏 <i class="fas fa-undo ml-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 音标学习 -->
+        <section class="section mb-16" id="phonetics">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">国际音标小课堂</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-primary-color flex items-center">
+                            <i class="fas fa-volume-up mr-2"></i>元音音标 (20个)
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɪ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/e/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/æ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɒ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ʊ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ʌ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ə/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɑː/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɔː/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɜː/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/iː/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/uː/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/eɪ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/aɪ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɔɪ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/əʊ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/aʊ/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ɪə/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/eə/</div>
+                            <div class="bg-blue-50 rounded-lg p-2 text-center">/ʊə/</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-secondary-color flex items-center">
+                            <i class="fas fa-microphone mr-2"></i>辅音音标 (28个)
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/p/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/t/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/k/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/b/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/d/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ɡ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/f/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/s/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/θ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ʃ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/h/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/v/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/z/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ð/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ʒ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/r/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/tr/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ts/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/tʃ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/dr/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/dz/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/dʒ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/m/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/n/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/ŋ/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/w/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/j/</div>
+                            <div class="bg-green-50 rounded-lg p-2 text-center">/l/</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学习成果展示 -->
+        <section class="section mb-16" id="achievement">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">我的学习成果</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 text-center">
+                <div class="w-32 h-32 bg-primary-color/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-4xl font-bold text-primary-color" id="score" aria-live="polite">0</span>
+                    <span class="text-xl ml-1">分</span>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="font-semibold mb-2">已掌握字母</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500">A</div>
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500">B</div>
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500">C</div>
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">D</div>
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">E</div>
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">F</div>
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">G</div>
+                        <!-- 更多字母... -->
+                    </div>
+                </div>
+                
+                <button class="bg-accent-color hover:bg-accent-color/90 text-white px-8 py-3 rounded-full font-medium transition-colors mb-4">
+                    完成小测验 <i class="fas fa-clipboard-check ml-2"></i>
+                </button>
+                
+                <p class="text-sm text-gray-500">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-1"></i> 提示：完成所有游戏和测验可以获得更多积分哦！
+                </p>
+            </div>
+        </section>
+    </main>
+
+        <!-- 规则总览（手风琴） -->
+        <section class="section mb-16" id="rules" aria-labelledby="rules-title">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-dark-color rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg" aria-hidden="true">
+                    <i class="fas fa-list"></i>
+                </div>
+                <h2 id="rules-title" class="text-2xl md:text-3xl font-bold">自然拼读与音标规则总览</h2>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <details class="mb-4">
+                    <summary class="cursor-pointer font-semibold text-primary-color">一、26个字母自然拼读规则</summary>
+                    <div class="mt-3 text-gray-700 text-sm space-y-4">
+                        <div>
+                            <p class="font-semibold">1) 元音字母（a, e, i, o, u）</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>A</strong>：闭音节（辅+a+辅）发 /æ/（bag, map）；开音节（a+辅+e）发 /eɪ/（name, take）；特殊：在 w 后发 /ɒ/（want, wash）；在 f/n/sk 等前发 /ɑː/（after, ask）；非重读音节发 /ə/（China）或 /ɪ/（orange）。</li>
+                                <li><strong>E</strong>：闭音节（辅+e+辅）发 /e/（egg, best）；开音节发 /iː/（be, he）；非重读音节发 /ə/（open）或 /ɪ/（chicken）。</li>
+                                <li><strong>I</strong>：闭音节（辅+i+辅）发 /ɪ/（bit, fit）；开音节（i+辅+e）发 /aɪ/（like, kite）；遇 gh/nd 组合也发 /aɪ/（high, find）；非重读音节发 /ɪ/（family）。</li>
+                                <li><strong>O</strong>：闭音节（辅+o+辅，重读）发 /ɒ/（dog, lot）；开音节（o+辅+e）发 /əʊ/（note, hope）；词尾时也发 /əʊ/（no, also）；特殊：在 m/n/v/th 前发 /ʌ/（come, love）；非重读闭音节发 /ə/（today）。</li>
+                                <li><strong>U</strong>：闭音节发 /ʌ/（bus, cup）；开音节（u+辅+e）发 /juː/（student）；在 j/r/s 后发 /uː/（rude, blue）；非重读音节发 /ə/（difficult）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold">2) 辅音字母（其余 21 个）</p>
+                            <ul class="list-disc pl-5 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                                <li><strong>B</strong>：/b/（bad, bag）</li>
+                                <li><strong>C</strong>：a/o/u 后 /k/（cap）；e/i/y 后 /s/（cell）；双写 /ks/（accept）；后接 ia/io 发 /ʃ/（social）。</li>
+                                <li><strong>D</strong>：/d/（duck, doctor）</li>
+                                <li><strong>F</strong>：/f/（fat, fan）</li>
+                                <li><strong>G</strong>：e/i/y 后 /dʒ/（gentle）；否则 /ɡ/（bag）</li>
+                                <li><strong>H</strong>：/h/（head, hand）</li>
+                                <li><strong>J</strong>：/dʒ/（jam, jeep）</li>
+                                <li><strong>K</strong>：/k/（kiss, kick）</li>
+                                <li><strong>L</strong>：/l/（last, leg）</li>
+                                <li><strong>M</strong>：/m/（map, man）</li>
+                                <li><strong>N</strong>：/n/（net, nick）</li>
+                                <li><strong>P</strong>：/p/（pig, pop）</li>
+                                <li><strong>Q</strong>：qu 发 /kw/（quick）；词尾发 /k/（unique）</li>
+                                <li><strong>R</strong>：/r/（rat, red）</li>
+                                <li><strong>S</strong>：清辅音前 /s/（best）；浊辅音/元音前 /z/（husband）；特殊 /ʃ/（sure）或 /ʒ/（usual）。</li>
+                                <li><strong>T</strong>：一般 /t/；后接 ia/ie/io 发 /ʃ/（initial）；特例不发音（often）。</li>
+                                <li><strong>V</strong>：/v/（very, value）</li>
+                                <li><strong>W</strong>：/w/（wet, win）</li>
+                                <li><strong>X</strong>：/ks/（box, fox）</li>
+                                <li><strong>Y</strong>：作辅音 /j/（yes）；作元音 /ɪ/（city）</li>
+                                <li><strong>Z</strong>：/z/（zip, zebra）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+                <details class="mb-4">
+                    <summary class="cursor-pointer font-semibold text-secondary-color">二、元音字母组合拼读规则</summary>
+                    <div class="mt-3 text-gray-700 text-sm grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>er</strong>：重读 /ɜː/（term），非重读 /ə/（teacher）</li>
+                            <li><strong>ee</strong>：/iː/（week），特例 /eɪ/（break）</li>
+                            <li><strong>ea</strong>：/iː/（teach）、/e/（weather）、/eɪ/（eight）</li>
+                            <li><strong>ei</strong>：/eɪ/（they）、/iː/（seize）</li>
+                            <li><strong>ey</strong>：/iː/（key）、/eɪ/（they）、/ɪ/（monkey）</li>
+                            <li><strong>ew</strong>：/uː/（flew）、/juː/（few）</li>
+                            <li><strong>ear</strong>：/ɪə/（hear）、/eə/（bear）、/ɜː/（earth）</li>
+                            <li><strong>ere</strong>：/ɪə/（here）、/eə/（there）</li>
+                            <li><strong>eer</strong>：/ɪə/（deer）</li>
+                        </ul>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>oa</strong>：/əʊ/（boat）</li>
+                            <li><strong>ow</strong>：/əʊ/（know）、/aʊ/（how）</li>
+                            <li><strong>ou</strong>：/aʊ/（house）、/uː/（soup）、/ʌ/（enough）</li>
+                            <li><strong>or</strong>：/ɔː/（short）、/ɜː/（world）、/ə/（doctor）</li>
+                            <li><strong>oi/oy</strong>：/ɔɪ/（oil, boy）</li>
+                            <li><strong>oo</strong>：/uː/（roof）、/ʊ/（look），特例 /ʌ/（blood）</li>
+                            <li><strong>ore</strong>：/ɔː/（store）</li>
+                            <li><strong>oar</strong>：/ɔː/（board）</li>
+                            <li><strong>our</strong>：/ɔː/（four）、/aʊə/（our）、/ə/（hour）</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="mb-4">
+                    <summary class="cursor-pointer font-semibold text-accent-color">三、辅音字母组合拼读规则</summary>
+                    <div class="mt-3 text-gray-700 text-sm grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>ch</strong>：多为 /tʃ/（cheese），少数 /k/（school）；tch /tʃ/（watch）</li>
+                            <li><strong>sh</strong>：/ʃ/（fish）</li>
+                            <li><strong>th</strong>：名词/数词 /θ/（thing）；动词/形容词 /ð/（that）；在 who 后 /h/</li>
+                            <li><strong>wh</strong>：o 前 /h/（who）；其他 /w/（why）</li>
+                            <li><strong>gh/ph</strong>：/f/（rough, photo）</li>
+                            <li><strong>bl/cl/fl/gl/pl/sl</strong>：/bl/、/kl/、/fl/、/gl/、/pl/、/sl/</li>
+                        </ul>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>br/pr/cr/fr</strong>：/br/、/pr/、/kr/、/fr/</li>
+                            <li><strong>dr/gr/tr</strong>：/dr/、/gr/、/tr/</li>
+                            <li><strong>sc/sk</strong>：/sk/（scarf, sky）</li>
+                            <li><strong>sm/sn/sp/spr/st/str/sw</strong>：/sm/、/sn/、/sp/、/spr/、/st/、/str/、/sw/</li>
+                            <li><strong>tw/kw/dw/gw</strong>：/tw/（twelve）、/kw/（awkward）、/dw/（dwell）、/ɡw/（gwen）</li>
+                            <li><strong>my/ny/ty/ry/re</strong>：/maɪ/（my）、/ni/（funny）、/ti/（party）、/ri/（sorry）、/r/（fire）</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="mb-4">
+                    <summary class="cursor-pointer font-semibold text-primary-color">四、音节与重读规则</summary>
+                    <div class="mt-3 text-gray-700 text-sm space-y-3">
+                        <div>
+                            <p class="font-semibold">音节分类</p>
+                            <ul class="list-disc pl-5">
+                                <li><strong>绝对开音节</strong>：元音结尾，如 bee /biː/</li>
+                                <li><strong>相对开音节</strong>：元+辅+e，如 name /neɪm/</li>
+                                <li><strong>闭音节</strong>：辅音结尾，如 bag /bæɡ/</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold">重读规则</p>
+                            <ul class="list-disc pl-5">
+                                <li>单音节词直接重读，如 bird /bɜːd/</li>
+                                <li>双音节词：动词重读第二音节（relate /rɪ'leɪt/），名词重读第一音节（student /'stjuːdnt/）；含 ac-/ad-/com- 等词缀的动词重读第二音节</li>
+                                <li>多音节词：常重读倒数第三个音节，如 internationally /ˌɪntəˈnæʃnəli/</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+                <details class="mb-4">
+                    <summary class="cursor-pointer font-semibold text-secondary-color">五、48个国际音标规则</summary>
+                    <div class="mt-3 text-gray-700 text-sm grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="font-semibold">元音（20 个）</p>
+                            <p class="mt-1">短元音：/ɪ/ /e/ /æ/ /ɒ/ /ʊ/ /ʌ/ /ə/</p>
+                            <p>长元音：/ɑː/ /ɔː/ /ɜː/ /iː/ /uː/</p>
+                            <p>双元音：/eɪ/ /aɪ/ /ɔɪ/ /əʊ/ /aʊ/ /ɪə/ /eə/ /ʊə/</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">辅音（28 个）</p>
+                            <p class="mt-1">清辅音：/p/ /t/ /k/ /f/ /s/ /θ/ /ʃ/ /h/ /tr/ /ts/ /tʃ/</p>
+                            <p>浊辅音：/b/ /d/ /ɡ/ /v/ /z/ /ð/ /ʒ/ /r/ /dr/ /dz/ /dʒ/</p>
+                            <p>鼻音：/m/ /n/ /ŋ/；半元音：/w/ /j/；舌侧音：/l/</p>
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary class="cursor-pointer font-semibold text-accent-color">六、辅元字母组合拼读规则（部分示例）</summary>
+                    <div class="mt-3 text-gray-700 text-sm grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>al</strong>：/ɔː/（chalk）、/ɔːl/（almost）</li>
+                            <li><strong>aw</strong>：/ɔː/（awful）</li>
+                            <li><strong>ew</strong>：/juː/（new）</li>
+                            <li><strong>ind/ild</strong>：/aɪnd/（mind）、/aɪld/（child）</li>
+                            <li><strong>igh/ign</strong>：/aɪ/（light）、/aɪn/（sign）</li>
+                            <li><strong>ing</strong>：/ɪŋ/（doing）</li>
+                        </ul>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>ow</strong>：/aʊ/（down）、/əʊ/（flow）</li>
+                            <li><strong>ought</strong>：/ɔːt/（thought）</li>
+                            <li><strong>gu</strong>：/ɡ/（guard）</li>
+                            <li><strong>sion/tion</strong>：元音后 /ʒn/（television），辅音后 /ʃn/（tension）</li>
+                            <li><strong>sure/ture</strong>：/ʒə/（pleasure）、/tʃə/（future）</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+    <footer class="bg-dark-color text-white py-8" role="contentinfo">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-white hover:text-accent-color transition-colors">
+                    <i class="fab fa-weixin text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-accent-color transition-colors">
+                    <i class="fab fa-weibo text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-accent-color transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+            <p class="text-sm text-gray-400">
+                © 2023 自然拼读小课堂 - 让学习英语变得有趣
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 卡片翻转动画
+        function flipCard(card) {
+            const front = card.querySelector('.front');
+            const back = card.querySelector('.back');
+            front.classList.toggle('hidden');
+            back.classList.toggle('hidden');
+            card.classList.toggle('flipped');
+
+            // 记分：首次翻到背面时加分
+            if (card.classList.contains('flipped') && !card.dataset.scored) {
+                const points = parseInt(card.getAttribute('data-points') || '5', 10);
+                addScore(points);
+                card.dataset.scored = 'true';
+            }
+        }
+        
+        // 重置游戏
+        function shuffleGame() {
+            const grid = document.getElementById('game-grid');
+            const cards = Array.from(grid.children);
+            const shuffled = cards
+                .map(el => ({ el, sort: Math.random() }))
+                .sort((a, b) => a.sort - b.sort)
+                .map(({ el }) => el);
+            shuffled.forEach(el => grid.appendChild(el));
+        }
+
+        document.getElementById('reset-game').addEventListener('click', function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                const front = card.querySelector('.front');
+                const back = card.querySelector('.back');
+                front.classList.remove('hidden');
+                back.classList.add('hidden');
+                card.classList.remove('flipped');
+                delete card.dataset.scored;
+            });
+            shuffleGame();
+        });
+        
+        // 滚动显示动画
+        function checkVisibility() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+            
+            // 进度条
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            progressFill.style.width = scrollPercent + '%';
+            progressText.textContent = Math.round(scrollPercent) + '%';
+        }
+        
+        // 初始检查
+        checkVisibility();
+        
+        // 滚动时检查
+        window.addEventListener('scroll', checkVisibility);
+        
+        // 模拟学习分数
+        let score = 0;
+        const scoreElement = document.getElementById('score');
+        
+        // 可以通过完成游戏增加分数
+        function addScore(points) {
+            score += points;
+            scoreElement.textContent = score;
+            
+            // 分数动画
+            scoreElement.classList.add('text-accent-color');
+            setTimeout(() => {
+                scoreElement.classList.remove('text-accent-color');
+            }, 1000);
+        }
+
+        // 语音播放（Web Speech API）
+        function speakText(text) {
+            try {
+                if (!('speechSynthesis' in window)) return;
+                const utter = new SpeechSynthesisUtterance(text);
+                const voices = window.speechSynthesis.getVoices();
+                const preferred = voices.find(v => /en-GB|en-US/i.test(v.lang));
+                if (preferred) utter.voice = preferred;
+                utter.rate = 0.9;
+                utter.pitch = 1.0;
+                window.speechSynthesis.speak(utter);
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        // 绑定元音示例播报
+        document.querySelectorAll('.speak-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const phoneme = btn.getAttribute('data-phoneme') || '';
+                const words = btn.getAttribute('data-words') || '';
+                const say = `${words}`;
+                speakText(say);
+            });
+        });
+
+        // 游戏卡片键盘支持（Enter/Space 翻转）
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' || e.code === 'Enter') {
+                    e.preventDefault();
+                    flipCard(card);
+                }
+            });
+        });
+
+        // 初始随机顺序
+        shuffleGame();
+    </script>
+</body>
+</html>
