@@ -145,7 +145,7 @@ export function PhonemeCard({
       className="phoneme-card-container relative"
       style={{
         perspective: '1000px',
-        minHeight: '400px',
+        minHeight: 'clamp(350px, 50vh, 450px)',
       }}
     >
       <div
@@ -161,7 +161,7 @@ export function PhonemeCard({
           className={`
             phoneme-card-front
             absolute inset-0
-            bg-white rounded-xl p-6 border-2
+            bg-white rounded-xl p-4 sm:p-6 border-2
             shadow-sm hover:shadow-lg
             transition-all duration-200
             cursor-pointer
@@ -176,7 +176,7 @@ export function PhonemeCard({
       {/* 头部：音标符号 + 收藏 */}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <div className="text-4xl font-bold mb-1">
+          <div className="text-3xl sm:text-4xl font-bold mb-1">
             /{phoneme.symbol}/
           </div>
           <div className="text-sm text-gray-600">{phoneme.name}</div>
@@ -265,7 +265,7 @@ export function PhonemeCard({
 
         {/* 卡片背面 - 详细讲解 */}
         <div
-          className="phoneme-card-back absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 shadow-lg overflow-y-auto cursor-pointer"
+          className="phoneme-card-back absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 sm:p-6 border-2 border-indigo-200 shadow-lg overflow-y-auto cursor-pointer"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
@@ -276,7 +276,7 @@ export function PhonemeCard({
           {/* 头部 */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="text-5xl font-bold text-indigo-600">/{phoneme.symbol}/</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600">/{phoneme.symbol}/</div>
               <div>
                 <div className="text-lg font-semibold text-gray-800">{phoneme.name}</div>
                 <div className="text-xs text-gray-500">点击翻回正面</div>

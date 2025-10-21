@@ -29,7 +29,7 @@ export function CategoryFilter({
             key={category.value}
             onClick={() => onChange(category.value)}
             className={`
-              px-4 py-2 rounded-full text-sm font-medium
+              px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium
               transition-all duration-200
               ${
                 isActive

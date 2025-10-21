@@ -11,11 +11,11 @@ export function Header() {
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <BookOpen className="text-2xl floating" aria-hidden="true" />
-          <h1 className="text-2xl md:text-3xl font-bold">自然拼读小课堂</h1>
+          <BookOpen className="text-xl sm:text-2xl floating" aria-hidden="true" />
+          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold">自然拼读小课堂</h1>
         </div>
-        <div className="flex items-center space-x-4">
-          <div className="w-32 h-2 bg-gray-200/30 rounded-full overflow-hidden">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="w-20 sm:w-32 h-2 bg-gray-200/30 rounded-full overflow-hidden">
             <div
               className="progress-fill h-full bg-gradient-to-r from-indigo-400 to-emerald-300 rounded-full"
               style={{ width: `${percent}%` }}
