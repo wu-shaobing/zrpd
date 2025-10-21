@@ -7,22 +7,33 @@
 - **目标平台**：macOS（可扩展到 Windows/Linux）
 - **技术栈**：Tauri 2（Rust 后端）+ React 18 + TypeScript + Vite 6 + Tailwind CSS 4 + Zustand
 - **离线可用**：将 CDN 资源（Tailwind、Font Awesome）替换为本地依赖打包
-- **语音功能**：优先使用 Web Speech API；在 macOS WebKit 不支持场景下，使用 Tauri Shell 调用系统 say 命令（受限 allowlist）或使用本地录音音频作为兜底
+- **语音功能**：三层音频架构
+  1. **本地音频 Sprite**（首选）- 使用 Web Audio API 播放预置音频
+  2. **Tauri Shell TTS**（兜底1）- macOS `say` 命令（受限 allowlist）
+  3. **Web Speech API**（兜底2）- 浏览器内置 TTS
 
 ## 文档导航
 
-- [ARCHITECTURE.md](./ARCHITECTURE.md)：架构与目录
-- [ENVIRONMENT_AND_SETUP.md](./ENVIRONMENT_AND_SETUP.md)：环境与初始化
-- [BUILD_AND_RUN.md](./BUILD_AND_RUN.md)：开发运行与打包
-- [GAMEPLAY_DESIGN.md](./GAMEPLAY_DESIGN.md)：玩法设计与交互
-- [ASSETS_AND_CONTENT.md](./ASSETS_AND_CONTENT.md)：素材与内容数据
-- [TESTING_AND_QA.md](./TESTING_AND_QA.md)：测试与验收
-- [TAURI_INTEGRATION.md](./TAURI_INTEGRATION.md)：Tauri 集成要点（插件、权限、安全）
-- [ACCESSIBILITY.md](./ACCESSIBILITY.md)：无障碍与可访问性
-- [I18N_AND_L10N.md](./I18N_AND_L10N.md)：国际化本地化
-- [SECURITY.md](./SECURITY.md)：安全与隐私
-- [DATA_MODEL.md](./DATA_MODEL.md)：数据模型与类型
-- [REFERENCES.md](./REFERENCES.md)：外部参考与链接
+### 核心文档
+- [ARCHITECTURE.md](./docs/ARCHITECTURE.md)：架构与目录
+- [ENVIRONMENT_AND_SETUP.md](./docs/ENVIRONMENT_AND_SETUP.md)：环境与初始化
+- [BUILD_AND_RUN.md](./docs/BUILD_AND_RUN.md)：开发运行与打包
+- [GAMEPLAY_DESIGN.md](./docs/GAMEPLAY_DESIGN.md)：玩法设计与交互
+- [ASSETS_AND_CONTENT.md](./docs/ASSETS_AND_CONTENT.md)：素材与内容数据
+- [TESTING_AND_QA.md](./docs/TESTING_AND_QA.md)：测试与验收
+
+### 技术文档
+- [TAURI_INTEGRATION.md](./docs/TAURI_INTEGRATION.md)：Tauri 集成要点（插件、权限、安全）
+- [ACCESSIBILITY.md](./docs/ACCESSIBILITY.md)：无障碍与可访问性
+- [I18N_AND_L10N.md](./docs/I18N_AND_L10N.md)：国际化本地化
+- [SECURITY.md](./docs/SECURITY.md)：安全与隐私
+- [DATA_MODEL.md](./docs/DATA_MODEL.md)：数据模型与类型
+- [REFERENCES.md](./docs/REFERENCES.md)：外部参考与链接
+
+### 🎵 音频系统文档（新增）
+- **[AUDIO_QUICKSTART.md](./docs/AUDIO_QUICKSTART.md)** - ⚡ 5分钟快速开始
+- **[AUDIO_SYSTEM.md](./docs/AUDIO_SYSTEM.md)** - 📚 完整架构文档（450+ 行）
+- **[scripts/README.md](./scripts/README.md)** - 🛠️ 音频生成脚本说明
 
 ## 快速开始
 
@@ -83,9 +94,61 @@ npm run dev
 - 后续如需 CI/CD、代码签名或跨平台差异配置，请在相应文档中扩展
 - 原 HTML 文件中的交互逻辑（卡片翻转、进度追踪、语音播放）将完全复制到 React 组件中
 
+## 🎵 音频系统（新增）
+
+### 三层语音架构
+
+项目采用**三层降级策略**，确保音素发音的一致性和稳定性：
+
+```
+本地音频 Sprite (首选) → Tauri TTS (兜底1) → Web Speech API (兜底2)
+```
+
+### 快速启用音频
+
+```bash
+# 1. 安装音频生成工具（可选，用于生成高质量音频）
+brew install espeak-ng ffmpeg sox jq
+npm install -g audiosprite
+
+# 2. 生成音频资产
+./scripts/generate-phonemes.sh
+
+# 3. 启动应用（即使不生成音频，应用也能正常运行）
+npm run dev
+```
+
+### 特性
+
+- ✅ **离线优先** - 本地音频文件，无需网络
+- ✅ **自动降级** - 三层策略确保任何环境可用
+- ✅ **高性能** - 懒加载、预加载、淡入淡出
+- ✅ **无障碍** - ARIA 标签、键盘可达
+- ✅ **可定制** - 调整 eSpeak 参数或手动替换音素
+
+### 使用示例
+
+```tsx
+import { usePhonemeAudio } from '@/hooks/usePhonemeAudio';
+
+function MyComponent() {
+  const { play, isPlaying } = usePhonemeAudio();
+  
+  return (
+    <button onClick={() => play('v1')} disabled={isPlaying}>
+      {isPlaying ? '播放中...' : '听发音'}
+    </button>
+  );
+}
+```
+
+详见 [AUDIO_QUICKSTART.md](./docs/AUDIO_QUICKSTART.md)
+
+---
+
 ## 开发优先级
 
 1. **核心功能**：元音字母学习、辅音字母学习、字母组合游戏
 2. **交互功能**：卡片翻转动画、进度条更新、分数统计
-3. **增强功能**：语音播放、键盘导航、无障碍支持
+3. **增强功能**：✅ 音频播放系统、键盘导航、无障碍支持
 4. **包装功能**：桌面应用集成、本地化、主题切换

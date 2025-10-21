@@ -7,10 +7,27 @@ import { GameSection } from './features/game/GameSection';
 import { AchievementSection } from './features/game/AchievementSection';
 import { RulesSection } from './features/rules/RulesSection';
 import { useProgress } from './hooks/useProgress';
+import { preloadPhonemeSprites } from './hooks/usePhonemeAudio';
 
 function App() {
   useProgress();
   const sectionsRef = useRef<HTMLElement>(null);
+
+  // 预加载音频 sprites（可选，如果音频文件不存在会自动降级到 TTS）
+  useEffect(() => {
+    // 延迟预加载，优先加载页面内容
+    const timer = setTimeout(() => {
+      preloadPhonemeSprites().catch(() => {
+        // 音频文件不存在时静默失败，不显示警告
+        // 系统会自动降级到 Tauri TTS 或 Web Speech API
+        if (process.env.NODE_ENV === 'development') {
+          console.info('音频 sprite 未生成，将使用 TTS 播放。如需本地音频，请运行: ./scripts/generate-phonemes.sh');
+        }
+      });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     // Section visibility observer

@@ -1,0 +1,827 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-16",
+    "totalPhonemes": 48,
+    "spriteFiles": ["phonemes-vowels.mp3", "phonemes-consonants.mp3"],
+    "generatedWith": "eSpeak-ng v1.51 + audiosprite"
+  },
+  "phonemes": [
+    {
+      "id": "v1",
+      "symbol": "ɪ",
+      "graphemes": ["i", "y"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 0, "end": 450 },
+      "carrier": {
+        "isolated": "ih",
+        "initial": "ih",
+        "medial": "uh-ih-uh",
+        "final": "ih"
+      },
+      "ariaLabel": "短元音 i，如 bit",
+      "duration": 450,
+      "sampleText": "bit"
+    },
+    {
+      "id": "v2",
+      "symbol": "e",
+      "graphemes": ["e", "ea"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 450, "end": 900 },
+      "carrier": {
+        "isolated": "eh",
+        "initial": "eh",
+        "medial": "uh-eh-uh",
+        "final": "eh"
+      },
+      "ariaLabel": "短元音 e，如 bed",
+      "duration": 450,
+      "sampleText": "bed"
+    },
+    {
+      "id": "v3",
+      "symbol": "æ",
+      "graphemes": ["a"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 900, "end": 1400 },
+      "carrier": {
+        "isolated": "ah",
+        "initial": "ah",
+        "medial": "uh-ah-uh",
+        "final": "ah"
+      },
+      "ariaLabel": "短元音 æ，如 cat",
+      "duration": 500,
+      "sampleText": "cat"
+    },
+    {
+      "id": "v4",
+      "symbol": "ʌ",
+      "graphemes": ["u", "o"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 1400, "end": 1850 },
+      "carrier": {
+        "isolated": "uh",
+        "initial": "uh",
+        "medial": "uh-uh-uh",
+        "final": "uh"
+      },
+      "ariaLabel": "短元音 ʌ，如 cup",
+      "duration": 450,
+      "sampleText": "cup"
+    },
+    {
+      "id": "v5",
+      "symbol": "ɒ",
+      "graphemes": ["o"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 1850, "end": 2350 },
+      "carrier": {
+        "isolated": "oh",
+        "initial": "oh",
+        "medial": "uh-oh-uh",
+        "final": "oh"
+      },
+      "ariaLabel": "短元音 ɒ，如 hot",
+      "duration": 500,
+      "sampleText": "hot"
+    },
+    {
+      "id": "v6",
+      "symbol": "ʊ",
+      "graphemes": ["oo", "u"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 2350, "end": 2800 },
+      "carrier": {
+        "isolated": "oo",
+        "initial": "oo",
+        "medial": "uh-oo-uh",
+        "final": "oo"
+      },
+      "ariaLabel": "短元音 ʊ，如 book",
+      "duration": 450,
+      "sampleText": "book"
+    },
+    {
+      "id": "v7",
+      "symbol": "iː",
+      "graphemes": ["ee", "ea", "e"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 2800, "end": 3400 },
+      "carrier": {
+        "isolated": "eee",
+        "initial": "eee",
+        "medial": "uh-eee-uh",
+        "final": "eee"
+      },
+      "ariaLabel": "长元音 i:，如 see",
+      "duration": 600,
+      "sampleText": "see"
+    },
+    {
+      "id": "v8",
+      "symbol": "ɜː",
+      "graphemes": ["er", "ir", "ur"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 3400, "end": 4000 },
+      "carrier": {
+        "isolated": "ur",
+        "initial": "ur",
+        "medial": "uh-ur-uh",
+        "final": "ur"
+      },
+      "ariaLabel": "长元音 ɜ:，如 bird",
+      "duration": 600,
+      "sampleText": "bird"
+    },
+    {
+      "id": "v9",
+      "symbol": "ɑː",
+      "graphemes": ["ar", "a"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 4000, "end": 4600 },
+      "carrier": {
+        "isolated": "aah",
+        "initial": "aah",
+        "medial": "uh-aah-uh",
+        "final": "aah"
+      },
+      "ariaLabel": "长元音 ɑ:，如 car",
+      "duration": 600,
+      "sampleText": "car"
+    },
+    {
+      "id": "v10",
+      "symbol": "ɔː",
+      "graphemes": ["or", "aw", "au"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 4600, "end": 5200 },
+      "carrier": {
+        "isolated": "aw",
+        "initial": "aw",
+        "medial": "uh-aw-uh",
+        "final": "aw"
+      },
+      "ariaLabel": "长元音 ɔ:，如 door",
+      "duration": 600,
+      "sampleText": "door"
+    },
+    {
+      "id": "v11",
+      "symbol": "uː",
+      "graphemes": ["oo", "u", "ue"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 5200, "end": 5800 },
+      "carrier": {
+        "isolated": "ooo",
+        "initial": "ooo",
+        "medial": "uh-ooo-uh",
+        "final": "ooo"
+      },
+      "ariaLabel": "长元音 u:，如 moon",
+      "duration": 600,
+      "sampleText": "moon"
+    },
+    {
+      "id": "v12",
+      "symbol": "ə",
+      "graphemes": ["a", "e", "o", "u"],
+      "category": "vowel",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 5800, "end": 6200 },
+      "carrier": {
+        "isolated": "uh",
+        "initial": "uh",
+        "medial": "uh",
+        "final": "uh"
+      },
+      "ariaLabel": "中性元音 ə，如 about",
+      "duration": 400,
+      "sampleText": "about"
+    },
+    {
+      "id": "v13",
+      "symbol": "eɪ",
+      "graphemes": ["ay", "ai", "a_e"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 6200, "end": 6900 },
+      "carrier": {
+        "isolated": "ay",
+        "initial": "ay",
+        "medial": "uh-ay-uh",
+        "final": "ay"
+      },
+      "ariaLabel": "双元音 eɪ，如 day",
+      "duration": 700,
+      "sampleText": "day"
+    },
+    {
+      "id": "v14",
+      "symbol": "aɪ",
+      "graphemes": ["i", "y", "igh"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 6900, "end": 7600 },
+      "carrier": {
+        "isolated": "eye",
+        "initial": "eye",
+        "medial": "uh-eye-uh",
+        "final": "eye"
+      },
+      "ariaLabel": "双元音 aɪ，如 time",
+      "duration": 700,
+      "sampleText": "time"
+    },
+    {
+      "id": "v15",
+      "symbol": "ɔɪ",
+      "graphemes": ["oy", "oi"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 7600, "end": 8300 },
+      "carrier": {
+        "isolated": "oy",
+        "initial": "oy",
+        "medial": "uh-oy-uh",
+        "final": "oy"
+      },
+      "ariaLabel": "双元音 ɔɪ，如 boy",
+      "duration": 700,
+      "sampleText": "boy"
+    },
+    {
+      "id": "v16",
+      "symbol": "əʊ",
+      "graphemes": ["o", "oa", "ow"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 8300, "end": 9000 },
+      "carrier": {
+        "isolated": "oh",
+        "initial": "oh",
+        "medial": "uh-oh-uh",
+        "final": "oh"
+      },
+      "ariaLabel": "双元音 əʊ，如 go",
+      "duration": 700,
+      "sampleText": "go"
+    },
+    {
+      "id": "v17",
+      "symbol": "aʊ",
+      "graphemes": ["ow", "ou"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 9000, "end": 9700 },
+      "carrier": {
+        "isolated": "ow",
+        "initial": "ow",
+        "medial": "uh-ow-uh",
+        "final": "ow"
+      },
+      "ariaLabel": "双元音 aʊ，如 now",
+      "duration": 700,
+      "sampleText": "now"
+    },
+    {
+      "id": "v18",
+      "symbol": "ɪə",
+      "graphemes": ["ear", "eer", "ere"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 9700, "end": 10400 },
+      "carrier": {
+        "isolated": "ear",
+        "initial": "ear",
+        "medial": "uh-ear-uh",
+        "final": "ear"
+      },
+      "ariaLabel": "双元音 ɪə，如 here",
+      "duration": 700,
+      "sampleText": "here"
+    },
+    {
+      "id": "v19",
+      "symbol": "eə",
+      "graphemes": ["air", "are", "ear"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 10400, "end": 11100 },
+      "carrier": {
+        "isolated": "air",
+        "initial": "air",
+        "medial": "uh-air-uh",
+        "final": "air"
+      },
+      "ariaLabel": "双元音 eə，如 where",
+      "duration": 700,
+      "sampleText": "where"
+    },
+    {
+      "id": "v20",
+      "symbol": "ʊə",
+      "graphemes": ["ure", "our"],
+      "category": "diphthong",
+      "spriteKey": "phonemes-vowels",
+      "region": { "start": 11100, "end": 11800 },
+      "carrier": {
+        "isolated": "oor",
+        "initial": "oor",
+        "medial": "uh-oor-uh",
+        "final": "oor"
+      },
+      "ariaLabel": "双元音 ʊə，如 tour",
+      "duration": 700,
+      "sampleText": "tour"
+    },
+    {
+      "id": "c1",
+      "symbol": "p",
+      "graphemes": ["p"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 0, "end": 350 },
+      "carrier": {
+        "isolated": "puh",
+        "initial": "puh",
+        "medial": "uh-puh-uh",
+        "final": "uh-p"
+      },
+      "ariaLabel": "清辅音 p，如 pen",
+      "duration": 350,
+      "sampleText": "pen"
+    },
+    {
+      "id": "c2",
+      "symbol": "b",
+      "graphemes": ["b"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 350, "end": 700 },
+      "carrier": {
+        "isolated": "buh",
+        "initial": "buh",
+        "medial": "uh-buh-uh",
+        "final": "uh-b"
+      },
+      "ariaLabel": "浊辅音 b，如 boy",
+      "duration": 350,
+      "sampleText": "boy"
+    },
+    {
+      "id": "c3",
+      "symbol": "t",
+      "graphemes": ["t"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 700, "end": 1050 },
+      "carrier": {
+        "isolated": "tuh",
+        "initial": "tuh",
+        "medial": "uh-tuh-uh",
+        "final": "uh-t"
+      },
+      "ariaLabel": "清辅音 t，如 tea",
+      "duration": 350,
+      "sampleText": "tea"
+    },
+    {
+      "id": "c4",
+      "symbol": "d",
+      "graphemes": ["d"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 1050, "end": 1400 },
+      "carrier": {
+        "isolated": "duh",
+        "initial": "duh",
+        "medial": "uh-duh-uh",
+        "final": "uh-d"
+      },
+      "ariaLabel": "浊辅音 d，如 day",
+      "duration": 350,
+      "sampleText": "day"
+    },
+    {
+      "id": "c5",
+      "symbol": "k",
+      "graphemes": ["k", "c"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 1400, "end": 1750 },
+      "carrier": {
+        "isolated": "kuh",
+        "initial": "kuh",
+        "medial": "uh-kuh-uh",
+        "final": "uh-k"
+      },
+      "ariaLabel": "清辅音 k，如 cat",
+      "duration": 350,
+      "sampleText": "cat"
+    },
+    {
+      "id": "c6",
+      "symbol": "ɡ",
+      "graphemes": ["g"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 1750, "end": 2100 },
+      "carrier": {
+        "isolated": "guh",
+        "initial": "guh",
+        "medial": "uh-guh-uh",
+        "final": "uh-g"
+      },
+      "ariaLabel": "浊辅音 g，如 go",
+      "duration": 350,
+      "sampleText": "go"
+    },
+    {
+      "id": "c7",
+      "symbol": "f",
+      "graphemes": ["f", "ph"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 2100, "end": 2600 },
+      "carrier": {
+        "isolated": "fff",
+        "initial": "fff-uh",
+        "medial": "uh-fff-uh",
+        "final": "uh-fff"
+      },
+      "ariaLabel": "清辅音 f，如 fish",
+      "duration": 500,
+      "sampleText": "fish"
+    },
+    {
+      "id": "c8",
+      "symbol": "v",
+      "graphemes": ["v"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 2600, "end": 3100 },
+      "carrier": {
+        "isolated": "vvv",
+        "initial": "vvv-uh",
+        "medial": "uh-vvv-uh",
+        "final": "uh-vvv"
+      },
+      "ariaLabel": "浊辅音 v，如 voice",
+      "duration": 500,
+      "sampleText": "voice"
+    },
+    {
+      "id": "c9",
+      "symbol": "θ",
+      "graphemes": ["th"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 3100, "end": 3700 },
+      "carrier": {
+        "isolated": "th",
+        "initial": "th-uh",
+        "medial": "uh-th-uh",
+        "final": "uh-th"
+      },
+      "ariaLabel": "清辅音 θ，无声th，如 think",
+      "duration": 600,
+      "sampleText": "think"
+    },
+    {
+      "id": "c10",
+      "symbol": "ð",
+      "graphemes": ["th"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 3700, "end": 4300 },
+      "carrier": {
+        "isolated": "the",
+        "initial": "the",
+        "medial": "uh-the-uh",
+        "final": "uh-the"
+      },
+      "ariaLabel": "浊辅音 ð，有声th，如 this",
+      "duration": 600,
+      "sampleText": "this"
+    },
+    {
+      "id": "c11",
+      "symbol": "s",
+      "graphemes": ["s", "c"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 4300, "end": 4900 },
+      "carrier": {
+        "isolated": "sss",
+        "initial": "sss-uh",
+        "medial": "uh-sss-uh",
+        "final": "uh-sss"
+      },
+      "ariaLabel": "清辅音 s，如 sun",
+      "duration": 600,
+      "sampleText": "sun"
+    },
+    {
+      "id": "c12",
+      "symbol": "z",
+      "graphemes": ["z", "s"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 4900, "end": 5500 },
+      "carrier": {
+        "isolated": "zzz",
+        "initial": "zzz-uh",
+        "medial": "uh-zzz-uh",
+        "final": "uh-zzz"
+      },
+      "ariaLabel": "浊辅音 z，如 zoo",
+      "duration": 600,
+      "sampleText": "zoo"
+    },
+    {
+      "id": "c13",
+      "symbol": "ʃ",
+      "graphemes": ["sh"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 5500, "end": 6100 },
+      "carrier": {
+        "isolated": "sh",
+        "initial": "sh-uh",
+        "medial": "uh-sh-uh",
+        "final": "uh-sh"
+      },
+      "ariaLabel": "清辅音 ʃ，如 she",
+      "duration": 600,
+      "sampleText": "she"
+    },
+    {
+      "id": "c14",
+      "symbol": "ʒ",
+      "graphemes": ["s", "z"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 6100, "end": 6700 },
+      "carrier": {
+        "isolated": "zh",
+        "initial": "zh-uh",
+        "medial": "uh-zh-uh",
+        "final": "uh-zh"
+      },
+      "ariaLabel": "浊辅音 ʒ，如 vision",
+      "duration": 600,
+      "sampleText": "vision"
+    },
+    {
+      "id": "c15",
+      "symbol": "h",
+      "graphemes": ["h"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 6700, "end": 7200 },
+      "carrier": {
+        "isolated": "huh",
+        "initial": "huh",
+        "medial": "uh-huh-uh",
+        "final": "uh-h"
+      },
+      "ariaLabel": "清辅音 h，如 hot",
+      "duration": 500,
+      "sampleText": "hot"
+    },
+    {
+      "id": "c16",
+      "symbol": "tʃ",
+      "graphemes": ["ch", "tch"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 7200, "end": 7750 },
+      "carrier": {
+        "isolated": "ch",
+        "initial": "ch-uh",
+        "medial": "uh-ch-uh",
+        "final": "uh-ch"
+      },
+      "ariaLabel": "清辅音 tʃ，如 chair",
+      "duration": 550,
+      "sampleText": "chair"
+    },
+    {
+      "id": "c17",
+      "symbol": "dʒ",
+      "graphemes": ["j", "g", "dge"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 7750, "end": 8300 },
+      "carrier": {
+        "isolated": "j",
+        "initial": "j-uh",
+        "medial": "uh-j-uh",
+        "final": "uh-j"
+      },
+      "ariaLabel": "浊辅音 dʒ，如 job",
+      "duration": 550,
+      "sampleText": "job"
+    },
+    {
+      "id": "c18",
+      "symbol": "m",
+      "graphemes": ["m"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 8300, "end": 8800 },
+      "carrier": {
+        "isolated": "mmm",
+        "initial": "mmm-uh",
+        "medial": "uh-mmm-uh",
+        "final": "uh-mmm"
+      },
+      "ariaLabel": "鼻音 m，如 mom",
+      "duration": 500,
+      "sampleText": "mom"
+    },
+    {
+      "id": "c19",
+      "symbol": "n",
+      "graphemes": ["n"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 8800, "end": 9300 },
+      "carrier": {
+        "isolated": "nnn",
+        "initial": "nnn-uh",
+        "medial": "uh-nnn-uh",
+        "final": "uh-nnn"
+      },
+      "ariaLabel": "鼻音 n，如 nice",
+      "duration": 500,
+      "sampleText": "nice"
+    },
+    {
+      "id": "c20",
+      "symbol": "ŋ",
+      "graphemes": ["ng"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 9300, "end": 9900 },
+      "carrier": {
+        "isolated": "ng",
+        "initial": "ng-uh",
+        "medial": "uh-ng-uh",
+        "final": "uh-ng"
+      },
+      "ariaLabel": "鼻音 ŋ，如 sing",
+      "duration": 600,
+      "sampleText": "sing"
+    },
+    {
+      "id": "c21",
+      "symbol": "l",
+      "graphemes": ["l"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 9900, "end": 10400 },
+      "carrier": {
+        "isolated": "lll",
+        "initial": "lll-uh",
+        "medial": "uh-lll-uh",
+        "final": "uh-lll"
+      },
+      "ariaLabel": "边音 l，如 love",
+      "duration": 500,
+      "sampleText": "love"
+    },
+    {
+      "id": "c22",
+      "symbol": "r",
+      "graphemes": ["r"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 10400, "end": 10900 },
+      "carrier": {
+        "isolated": "rrr",
+        "initial": "rrr-uh",
+        "medial": "uh-rrr-uh",
+        "final": "uh-rrr"
+      },
+      "ariaLabel": "近音 r，如 red",
+      "duration": 500,
+      "sampleText": "red"
+    },
+    {
+      "id": "c23",
+      "symbol": "w",
+      "graphemes": ["w"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 10900, "end": 11400 },
+      "carrier": {
+        "isolated": "wuh",
+        "initial": "wuh",
+        "medial": "uh-wuh-uh",
+        "final": "uh-w"
+      },
+      "ariaLabel": "半元音 w，如 water",
+      "duration": 500,
+      "sampleText": "water"
+    },
+    {
+      "id": "c24",
+      "symbol": "j",
+      "graphemes": ["y"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 11400, "end": 11900 },
+      "carrier": {
+        "isolated": "yuh",
+        "initial": "yuh",
+        "medial": "uh-yuh-uh",
+        "final": "uh-y"
+      },
+      "ariaLabel": "半元音 j，如 yes",
+      "duration": 500,
+      "sampleText": "yes"
+    },
+    {
+      "id": "c25",
+      "symbol": "ts",
+      "graphemes": ["ts"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 11900, "end": 12450 },
+      "carrier": {
+        "isolated": "ts",
+        "initial": "ts-uh",
+        "medial": "uh-ts-uh",
+        "final": "uh-ts"
+      },
+      "ariaLabel": "辅音组合 ts，如 cats",
+      "duration": 550,
+      "sampleText": "cats"
+    },
+    {
+      "id": "c26",
+      "symbol": "dz",
+      "graphemes": ["ds"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 12450, "end": 13000 },
+      "carrier": {
+        "isolated": "dz",
+        "initial": "dz-uh",
+        "medial": "uh-dz-uh",
+        "final": "uh-dz"
+      },
+      "ariaLabel": "辅音组合 dz，如 beds",
+      "duration": 550,
+      "sampleText": "beds"
+    },
+    {
+      "id": "c27",
+      "symbol": "tr",
+      "graphemes": ["tr"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 13000, "end": 13550 },
+      "carrier": {
+        "isolated": "tr",
+        "initial": "tr-uh",
+        "medial": "uh-tr-uh",
+        "final": "uh-tr"
+      },
+      "ariaLabel": "辅音组合 tr，如 tree",
+      "duration": 550,
+      "sampleText": "tree"
+    },
+    {
+      "id": "c28",
+      "symbol": "dr",
+      "graphemes": ["dr"],
+      "category": "consonant",
+      "spriteKey": "phonemes-consonants",
+      "region": { "start": 13550, "end": 14100 },
+      "carrier": {
+        "isolated": "dr",
+        "initial": "dr-uh",
+        "medial": "uh-dr-uh",
+        "final": "uh-dr"
+      },
+      "ariaLabel": "辅音组合 dr，如 drink",
+      "duration": 550,
+      "sampleText": "drink"
+    }
+  ]
+}

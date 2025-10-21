@@ -1,0 +1,343 @@
+{
+  "version": "1.0.0",
+  "generated": "2025-10-16T07:17:08.913Z",
+  "total": 48,
+  "lessons": {
+    "v1": {
+      "id": "v1",
+      "symbol": "ɪ",
+      "name": "短元音 i",
+      "lessonCn": "让我们来学习音标 ɪ\n\n📖 发音要领：\n短促的'衣'音\n💡 技巧：嘴唇微微张开，舌尖抵下齿\n👄 嘴型：半闭合\n👅 舌位：前高\n\n📝 示例单词：\n• bit [/bɪt/] - 一点\n• fish [/fɪʃ/] - 鱼\n• listen [/ˈlɪsən/] - 听\n\n⚠️ 常见错误：\n1. 不要发成长音/i:/\n2. 注意与汉语'衣'的区别\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v1-lesson.mp3"
+    },
+    "v2": {
+      "id": "v2",
+      "symbol": "e",
+      "name": "短元音 e",
+      "lessonCn": "让我们来学习音标 e\n\n📖 发音要领：\n类似'哎'的前半部分\n💡 技巧：嘴半张，舌身放平\n👄 嘴型：半开\n👅 舌位：前中\n\n📝 示例单词：\n• bed [/bed/] - 床\n• red [/red/] - 红色\n• better [/ˈbetər/] - 更好\n\n⚠️ 常见错误：\n1. 不要发成/æ/\n2. 保持嘴型稳定\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v2-lesson.mp3"
+    },
+    "v3": {
+      "id": "v3",
+      "symbol": "æ",
+      "name": "短元音 æ",
+      "lessonCn": "让我们来学习音标 æ\n\n📖 发音要领：\n介于'啊'和'哎'之间\n💡 技巧：嘴张大，舌身放平并略向前\n👄 嘴型：大开\n👅 舌位：前低\n\n📝 示例单词：\n• cat [/kæt/] - 猫\n• apple [/ˈæpəl/] - 苹果\n• happy [/ˈhæpi/] - 快乐\n\n⚠️ 常见错误：\n1. 嘴要张大\n2. 不要发成/e/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v3-lesson.mp3"
+    },
+    "v4": {
+      "id": "v4",
+      "symbol": "ʌ",
+      "name": "短元音 ʌ",
+      "lessonCn": "让我们来学习音标 ʌ\n\n📖 发音要领：\n短促的'啊'\n💡 技巧：嘴微张，舌身放松\n👄 嘴型：半开\n👅 舌位：中央\n\n📝 示例单词：\n• cup [/kʌp/] - 杯子\n• love [/lʌv/] - 爱\n• mother [/ˈmʌðər/] - 母亲\n\n⚠️ 常见错误：\n1. 不要发得太长\n2. 保持轻松自然\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v4-lesson.mp3"
+    },
+    "v5": {
+      "id": "v5",
+      "symbol": "ɒ",
+      "name": "短元音 ɒ",
+      "lessonCn": "让我们来学习音标 ɒ\n\n📖 发音要领：\n短促圆唇的'奥'\n💡 技巧：双唇收圆，嘴张大\n👄 嘴型：圆形大开\n👅 舌位：后低\n\n📝 示例单词：\n• hot [/hɒt/] - 热\n• dog [/dɒɡ/] - 狗\n• coffee [/ˈkɒfi/] - 咖啡\n\n⚠️ 常见错误：\n1. 注意圆唇\n2. 英式发音特征\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v5-lesson.mp3"
+    },
+    "v6": {
+      "id": "v6",
+      "symbol": "ʊ",
+      "name": "短元音 ʊ",
+      "lessonCn": "让我们来学习音标 ʊ\n\n📖 发音要领：\n短促的'乌'\n💡 技巧：双唇微圆，舌后部抬高\n👄 嘴型：小圆形\n👅 舌位：后高\n\n📝 示例单词：\n• book [/bʊk/] - 书\n• good [/ɡʊd/] - 好\n• could [/kʊd/] - 能够\n\n⚠️ 常见错误：\n1. 不要发成长音/u:/\n2. 保持短促\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v6-lesson.mp3"
+    },
+    "v7": {
+      "id": "v7",
+      "symbol": "iː",
+      "name": "长元音 i:",
+      "lessonCn": "让我们来学习音标 iː\n\n📖 发音要领：\n拉长的'衣'\n💡 技巧：嘴唇展开成微笑状，舌尖抵下齿\n👄 嘴型：展开微笑\n👅 舌位：前高\n\n📝 示例单词：\n• see [/siː/] - 看见\n• tea [/tiː/] - 茶\n• believe [/bɪˈliːv/] - 相信\n\n⚠️ 常见错误：\n1. 要保持足够的长度\n2. 嘴型要展开\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v7-lesson.mp3"
+    },
+    "v8": {
+      "id": "v8",
+      "symbol": "ɜː",
+      "name": "长元音 ɜ:",
+      "lessonCn": "让我们来学习音标 ɜː\n\n📖 发音要领：\n类似'呃'的长音\n💡 技巧：舌身平放，嘴微张\n👄 嘴型：半开\n👅 舌位：中央\n\n📝 示例单词：\n• bird [/bɜːd/] - 鸟\n• work [/wɜːk/] - 工作\n• learn [/lɜːn/] - 学习\n\n⚠️ 常见错误：\n1. 舌位要在中间\n2. 不要卷舌（美式除外）\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v8-lesson.mp3"
+    },
+    "v9": {
+      "id": "v9",
+      "symbol": "ɑː",
+      "name": "长元音 ɑ:",
+      "lessonCn": "让我们来学习音标 ɑː\n\n📖 发音要领：\n拉长的'啊'\n💡 技巧：嘴张大，舌身放低\n👄 嘴型：大开\n👅 舌位：后低\n\n📝 示例单词：\n• car [/kɑː/] - 汽车\n• father [/ˈfɑːðər/] - 父亲\n• class [/klɑːs/] - 班级\n\n⚠️ 常见错误：\n1. 嘴要张大\n2. 保持足够长度\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v9-lesson.mp3"
+    },
+    "v10": {
+      "id": "v10",
+      "symbol": "ɔː",
+      "name": "长元音 ɔ:",
+      "lessonCn": "让我们来学习音标 ɔː\n\n📖 发音要领：\n拉长圆唇的'奥'\n💡 技巧：双唇收圆，向前突出\n👄 嘴型：圆形\n👅 舌位：后中\n\n📝 示例单词：\n• door [/dɔː/] - 门\n• ball [/bɔːl/] - 球\n• August [/ˈɔːɡəst/] - 八月\n\n⚠️ 常见错误：\n1. 要保持圆唇\n2. 注意长度\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v10-lesson.mp3"
+    },
+    "v11": {
+      "id": "v11",
+      "symbol": "uː",
+      "name": "长元音 u:",
+      "lessonCn": "让我们来学习音标 uː\n\n📖 发音要领：\n拉长的'乌'\n💡 技巧：双唇收圆并前突，舌后部高抬\n👄 嘴型：小圆形前突\n👅 舌位：后高\n\n📝 示例单词：\n• moon [/muːn/] - 月亮\n• blue [/bluː/] - 蓝色\n• school [/skuːl/] - 学校\n\n⚠️ 常见错误：\n1. 双唇要收圆\n2. 保持足够长度\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v11-lesson.mp3"
+    },
+    "v12": {
+      "id": "v12",
+      "symbol": "ə",
+      "name": "中性元音 ə",
+      "lessonCn": "让我们来学习音标 ə\n\n📖 发音要领：\n轻读的'呃'\n💡 技巧：最放松的元音，舌身自然放平\n👄 嘴型：自然微开\n👅 舌位：中央\n\n📝 示例单词：\n• about [/əˈbaʊt/] - 关于\n• teacher [/ˈtiːtʃər/] - 老师\n• banana [/bəˈnɑːnə/] - 香蕉\n\n⚠️ 常见错误：\n1. 最常见的弱读音\n2. 不要读得太重\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v12-lesson.mp3"
+    },
+    "v13": {
+      "id": "v13",
+      "symbol": "eɪ",
+      "name": "双元音 eɪ",
+      "lessonCn": "让我们来学习音标 eɪ\n\n📖 发音要领：\n从'哎'滑到'衣'\n💡 技巧：舌位从前中滑向前高\n👄 嘴型：从半开到半闭\n👅 舌位：前中→前高\n\n📝 示例单词：\n• day [/deɪ/] - 天\n• make [/meɪk/] - 制作\n• great [/ɡreɪt/] - 伟大\n\n⚠️ 常见错误：\n1. 要有明显的滑动\n2. 不要发成单元音\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v13-lesson.mp3"
+    },
+    "v14": {
+      "id": "v14",
+      "symbol": "aɪ",
+      "name": "双元音 aɪ",
+      "lessonCn": "让我们来学习音标 aɪ\n\n📖 发音要领：\n从'啊'滑到'衣'\n💡 技巧：舌位从低滑向前高\n👄 嘴型：从大开到半闭\n👅 舌位：央低→前高\n\n📝 示例单词：\n• time [/taɪm/] - 时间\n• like [/laɪk/] - 喜欢\n• night [/naɪt/] - 夜晚\n\n⚠️ 常见错误：\n1. 起始音要饱满\n2. 滑动要自然\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v14-lesson.mp3"
+    },
+    "v15": {
+      "id": "v15",
+      "symbol": "ɔɪ",
+      "name": "双元音 ɔɪ",
+      "lessonCn": "让我们来学习音标 ɔɪ\n\n📖 发音要领：\n从'奥'滑到'衣'\n💡 技巧：从圆唇滑向展唇\n👄 嘴型：从圆形到展开\n👅 舌位：后中→前高\n\n📝 示例单词：\n• boy [/bɔɪ/] - 男孩\n• voice [/vɔɪs/] - 声音\n• enjoy [/ɪnˈdʒɔɪ/] - 享受\n\n⚠️ 常见错误：\n1. 开始要圆唇\n2. 结尾要展唇\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v15-lesson.mp3"
+    },
+    "v16": {
+      "id": "v16",
+      "symbol": "əʊ",
+      "name": "双元音 əʊ",
+      "lessonCn": "让我们来学习音标 əʊ\n\n📖 发音要领：\n从'呃'滑到'乌'\n💡 技巧：舌位从中央滑向后高\n👄 嘴型：从自然到圆唇\n👅 舌位：中央→后高\n\n📝 示例单词：\n• go [/ɡəʊ/] - 去\n• home [/həʊm/] - 家\n• phone [/fəʊn/] - 电话\n\n⚠️ 常见错误：\n1. 英式发音特征\n2. 美式为/oʊ/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v16-lesson.mp3"
+    },
+    "v17": {
+      "id": "v17",
+      "symbol": "aʊ",
+      "name": "双元音 aʊ",
+      "lessonCn": "让我们来学习音标 aʊ\n\n📖 发音要领：\n从'啊'滑到'乌'\n💡 技巧：从开口滑向圆唇\n👄 嘴型：从大开到圆形\n👅 舌位：央低→后高\n\n📝 示例单词：\n• now [/naʊ/] - 现在\n• house [/haʊs/] - 房子\n• about [/əˈbaʊt/] - 关于\n\n⚠️ 常见错误：\n1. 嘴型变化要明显\n2. 结尾要圆唇\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v17-lesson.mp3"
+    },
+    "v18": {
+      "id": "v18",
+      "symbol": "ɪə",
+      "name": "双元音 ɪə",
+      "lessonCn": "让我们来学习音标 ɪə\n\n📖 发音要领：\n从'衣'滑到'呃'\n💡 技巧：从前高滑向中央\n👄 嘴型：从半闭到半开\n👅 舌位：前高→中央\n\n📝 示例单词：\n• here [/hɪə/] - 这里\n• near [/nɪə/] - 附近\n• idea [/aɪˈdɪə/] - 想法\n\n⚠️ 常见错误：\n1. 英式发音特征\n2. 美式常为/ɪr/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v18-lesson.mp3"
+    },
+    "v19": {
+      "id": "v19",
+      "symbol": "eə",
+      "name": "双元音 eə",
+      "lessonCn": "让我们来学习音标 eə\n\n📖 发音要领：\n从'哎'滑到'呃'\n💡 技巧：从前中滑向中央\n👄 嘴型：保持半开\n👅 舌位：前中→中央\n\n📝 示例单词：\n• where [/weə/] - 哪里\n• care [/keə/] - 关心\n• hair [/heə/] - 头发\n\n⚠️ 常见错误：\n1. 英式发音特征\n2. 美式常为/er/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v19-lesson.mp3"
+    },
+    "v20": {
+      "id": "v20",
+      "symbol": "ʊə",
+      "name": "双元音 ʊə",
+      "lessonCn": "让我们来学习音标 ʊə\n\n📖 发音要领：\n从'乌'滑到'呃'\n💡 技巧：从后高滑向中央\n👄 嘴型：从圆形到自然\n👅 舌位：后高→中央\n\n📝 示例单词：\n• tour [/tʊə/] - 旅行\n• sure [/ʃʊə/] - 确定\n• pure [/pjʊə/] - 纯净\n\n⚠️ 常见错误：\n1. 较少使用\n2. 美式常简化为/ʊr/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "v20-lesson.mp3"
+    },
+    "c1": {
+      "id": "c1",
+      "symbol": "p",
+      "name": "清辅音 p",
+      "lessonCn": "让我们来学习音标 p\n\n📖 发音要领：\n双唇爆破音\n💡 技巧：双唇紧闭后突然打开，送气\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• pen [/pen/] - 笔\n• apple [/ˈæpəl/] - 苹果\n• stop [/stɒp/] - 停止\n\n⚠️ 常见错误：\n1. 送气要充分\n2. 词尾要轻\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c1-lesson.mp3"
+    },
+    "c2": {
+      "id": "c2",
+      "symbol": "b",
+      "name": "浊辅音 b",
+      "lessonCn": "让我们来学习音标 b\n\n📖 发音要领：\n双唇爆破音\n💡 技巧：双唇紧闭后打开，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• boy [/bɔɪ/] - 男孩\n• baby [/ˈbeɪbi/] - 婴儿\n• job [/dʒɒb/] - 工作\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 不要送气\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c2-lesson.mp3"
+    },
+    "c3": {
+      "id": "c3",
+      "symbol": "t",
+      "name": "清辅音 t",
+      "lessonCn": "让我们来学习音标 t\n\n📖 发音要领：\n舌尖爆破音\n💡 技巧：舌尖抵上齿龈，突然放开\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• tea [/tiː/] - 茶\n• water [/ˈwɔːtər/] - 水\n• cat [/kæt/] - 猫\n\n⚠️ 常见错误：\n1. 舌位要准确\n2. 美式可能弹舌\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c3-lesson.mp3"
+    },
+    "c4": {
+      "id": "c4",
+      "symbol": "d",
+      "name": "浊辅音 d",
+      "lessonCn": "让我们来学习音标 d\n\n📖 发音要领：\n舌尖爆破音\n💡 技巧：舌尖抵上齿龈，放开时声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• day [/deɪ/] - 天\n• daddy [/ˈdædi/] - 爸爸\n• good [/ɡʊd/] - 好\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 美式可能弹舌\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c4-lesson.mp3"
+    },
+    "c5": {
+      "id": "c5",
+      "symbol": "k",
+      "name": "清辅音 k",
+      "lessonCn": "让我们来学习音标 k\n\n📖 发音要领：\n舌根爆破音\n💡 技巧：舌根抵软腭，突然放开\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• cat [/kæt/] - 猫\n• key [/kiː/] - 钥匙\n• book [/bʊk/] - 书\n\n⚠️ 常见错误：\n1. 送气要充分\n2. 位置在舌根\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c5-lesson.mp3"
+    },
+    "c6": {
+      "id": "c6",
+      "symbol": "ɡ",
+      "name": "浊辅音 ɡ",
+      "lessonCn": "让我们来学习音标 ɡ\n\n📖 发音要领：\n舌根爆破音\n💡 技巧：舌根抵软腭，放开时声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• go [/ɡəʊ/] - 去\n• good [/ɡʊd/] - 好\n• big [/bɪɡ/] - 大\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 不要送气\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c6-lesson.mp3"
+    },
+    "c7": {
+      "id": "c7",
+      "symbol": "f",
+      "name": "清辅音 f",
+      "lessonCn": "让我们来学习音标 f\n\n📖 发音要领：\n唇齿摩擦音\n💡 技巧：上齿轻触下唇，气流摩擦通过\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• fish [/fɪʃ/] - 鱼\n• coffee [/ˈkɒfi/] - 咖啡\n• life [/laɪf/] - 生活\n\n⚠️ 常见错误：\n1. 上齿要碰下唇\n2. 气流要连续\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c7-lesson.mp3"
+    },
+    "c8": {
+      "id": "c8",
+      "symbol": "v",
+      "name": "浊辅音 v",
+      "lessonCn": "让我们来学习音标 v\n\n📖 发音要领：\n唇齿摩擦音\n💡 技巧：上齿触下唇，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• voice [/vɔɪs/] - 声音\n• very [/ˈveri/] - 非常\n• love [/lʌv/] - 爱\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 与/f/对应\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c8-lesson.mp3"
+    },
+    "c9": {
+      "id": "c9",
+      "symbol": "θ",
+      "name": "清辅音 θ",
+      "lessonCn": "让我们来学习音标 θ\n\n📖 发音要领：\n齿间摩擦音\n💡 技巧：舌尖置于上下齿之间，气流摩擦\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• think [/θɪŋk/] - 想\n• bath [/bɑːθ/] - 洗澡\n• month [/mʌnθ/] - 月\n\n⚠️ 常见错误：\n1. 舌尖要伸出\n2. 不要发成/s/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c9-lesson.mp3"
+    },
+    "c10": {
+      "id": "c10",
+      "symbol": "ð",
+      "name": "浊辅音 ð",
+      "lessonCn": "让我们来学习音标 ð\n\n📖 发音要领：\n齿间摩擦音\n💡 技巧：舌尖置于齿间，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• this [/ðɪs/] - 这个\n• mother [/ˈmʌðər/] - 母亲\n• breathe [/briːð/] - 呼吸\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 不要发成/z/或/d/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c10-lesson.mp3"
+    },
+    "c11": {
+      "id": "c11",
+      "symbol": "s",
+      "name": "清辅音 s",
+      "lessonCn": "让我们来学习音标 s\n\n📖 发音要领：\n齿龈摩擦音\n💡 技巧：舌尖接近上齿龈，气流摩擦\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• sun [/sʌn/] - 太阳\n• nice [/naɪs/] - 好的\n• miss [/mɪs/] - 想念\n\n⚠️ 常见错误：\n1. 舌位要准确\n2. 气流要集中\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c11-lesson.mp3"
+    },
+    "c12": {
+      "id": "c12",
+      "symbol": "z",
+      "name": "浊辅音 z",
+      "lessonCn": "让我们来学习音标 z\n\n📖 发音要领：\n齿龈摩擦音\n💡 技巧：舌尖接近上齿龈，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• zoo [/zuː/] - 动物园\n• music [/ˈmjuːzɪk/] - 音乐\n• is [/ɪz/] - 是\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 与/s/对应\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c12-lesson.mp3"
+    },
+    "c13": {
+      "id": "c13",
+      "symbol": "ʃ",
+      "name": "清辅音 ʃ",
+      "lessonCn": "让我们来学习音标 ʃ\n\n📖 发音要领：\n后齿龈摩擦音\n💡 技巧：舌身抬起，嘴唇略圆\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• she [/ʃiː/] - 她\n• fish [/fɪʃ/] - 鱼\n• English [/ˈɪŋɡlɪʃ/] - 英语\n\n⚠️ 常见错误：\n1. 舌位比/s/靠后\n2. 嘴唇要略圆\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c13-lesson.mp3"
+    },
+    "c14": {
+      "id": "c14",
+      "symbol": "ʒ",
+      "name": "浊辅音 ʒ",
+      "lessonCn": "让我们来学习音标 ʒ\n\n📖 发音要领：\n后齿龈摩擦音\n💡 技巧：舌身抬起，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• vision [/ˈvɪʒən/] - 视力\n• pleasure [/ˈpleʒər/] - 愉快\n• usually [/ˈjuːʒuəli/] - 通常\n\n⚠️ 常见错误：\n1. 较少单独出现\n2. 声带要振动\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c14-lesson.mp3"
+    },
+    "c15": {
+      "id": "c15",
+      "symbol": "h",
+      "name": "清辅音 h",
+      "lessonCn": "让我们来学习音标 h\n\n📖 发音要领：\n声门摩擦音\n💡 技巧：气流从声门通过，无阻碍\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• hot [/hɒt/] - 热\n• happy [/ˈhæpi/] - 快乐\n• behind [/bɪˈhaɪnd/] - 在后面\n\n⚠️ 常见错误：\n1. 要有气流\n2. 不要太重\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c15-lesson.mp3"
+    },
+    "c16": {
+      "id": "c16",
+      "symbol": "tʃ",
+      "name": "清辅音 tʃ",
+      "lessonCn": "让我们来学习音标 tʃ\n\n📖 发音要领：\n齿龈后破擦音\n💡 技巧：先爆破后摩擦，类似'吃'\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• chair [/tʃeə/] - 椅子\n• teach [/tiːtʃ/] - 教\n• much [/mʌtʃ/] - 很多\n\n⚠️ 常见错误：\n1. 要有爆破感\n2. 送气要充分\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c16-lesson.mp3"
+    },
+    "c17": {
+      "id": "c17",
+      "symbol": "dʒ",
+      "name": "浊辅音 dʒ",
+      "lessonCn": "让我们来学习音标 dʒ\n\n📖 发音要领：\n齿龈后破擦音\n💡 技巧：先爆破后摩擦，声带振动\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• job [/dʒɒb/] - 工作\n• judge [/dʒʌdʒ/] - 判断\n• age [/eɪdʒ/] - 年龄\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 与/tʃ/对应\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c17-lesson.mp3"
+    },
+    "c18": {
+      "id": "c18",
+      "symbol": "m",
+      "name": "鼻音 m",
+      "lessonCn": "让我们来学习音标 m\n\n📖 发音要领：\n双唇鼻音\n💡 技巧：双唇闭合，气流从鼻腔通过\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• mom [/mɒm/] - 妈妈\n• come [/kʌm/] - 来\n• home [/həʊm/] - 家\n\n⚠️ 常见错误：\n1. 双唇要紧闭\n2. 鼻腔要通畅\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c18-lesson.mp3"
+    },
+    "c19": {
+      "id": "c19",
+      "symbol": "n",
+      "name": "鼻音 n",
+      "lessonCn": "让我们来学习音标 n\n\n📖 发音要领：\n齿龈鼻音\n💡 技巧：舌尖抵上齿龈，气流从鼻腔通过\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• nice [/naɪs/] - 好的\n• sun [/sʌn/] - 太阳\n• funny [/ˈfʌni/] - 有趣\n\n⚠️ 常见错误：\n1. 舌尖要抵齿龈\n2. 鼻音要饱满\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c19-lesson.mp3"
+    },
+    "c20": {
+      "id": "c20",
+      "symbol": "ŋ",
+      "name": "鼻音 ŋ",
+      "lessonCn": "让我们来学习音标 ŋ\n\n📖 发音要领：\n软腭鼻音\n💡 技巧：舌根抵软腭，气流从鼻腔通过\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• sing [/sɪŋ/] - 唱\n• long [/lɒŋ/] - 长\n• thinking [/ˈθɪŋkɪŋ/] - 思考\n\n⚠️ 常见错误：\n1. 舌根要抵软腭\n2. 不要发成/n/\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c20-lesson.mp3"
+    },
+    "c21": {
+      "id": "c21",
+      "symbol": "l",
+      "name": "边音 l",
+      "lessonCn": "让我们来学习音标 l\n\n📖 发音要领：\n齿龈边音\n💡 技巧：舌尖抵上齿龈，气流从舌两侧通过\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• love [/lʌv/] - 爱\n• hello [/həˈləʊ/] - 你好\n• ball [/bɔːl/] - 球\n\n⚠️ 常见错误：\n1. 清晰/l/和暗/l/的区别\n2. 舌尖要抵齿龈\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c21-lesson.mp3"
+    },
+    "c22": {
+      "id": "c22",
+      "symbol": "r",
+      "name": "近音 r",
+      "lessonCn": "让我们来学习音标 r\n\n📖 发音要领：\n后齿龈近音\n💡 技巧：舌尖向上卷起但不触碰\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• red [/red/] - 红色\n• tree [/triː/] - 树\n• car [/kɑː/] - 汽车\n\n⚠️ 常见错误：\n1. 美式卷舌，英式不卷\n2. 不要颤音\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c22-lesson.mp3"
+    },
+    "c23": {
+      "id": "c23",
+      "symbol": "w",
+      "name": "半元音 w",
+      "lessonCn": "让我们来学习音标 w\n\n📖 发音要领：\n双唇软腭近音\n💡 技巧：双唇收圆，快速滑向元音\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• water [/ˈwɔːtər/] - 水\n• week [/wiːk/] - 周\n• away [/əˈweɪ/] - 离开\n\n⚠️ 常见错误：\n1. 双唇要圆\n2. 快速滑动\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c23-lesson.mp3"
+    },
+    "c24": {
+      "id": "c24",
+      "symbol": "j",
+      "name": "半元音 j",
+      "lessonCn": "让我们来学习音标 j\n\n📖 发音要领：\n硬腭近音\n💡 技巧：舌身抬高，快速滑向元音\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• yes [/jes/] - 是\n• year [/jɪə/] - 年\n• music [/ˈmjuːzɪk/] - 音乐\n\n⚠️ 常见错误：\n1. 不是摩擦音\n2. 快速滑动\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c24-lesson.mp3"
+    },
+    "c25": {
+      "id": "c25",
+      "symbol": "ts",
+      "name": "清辅音 ts",
+      "lessonCn": "让我们来学习音标 ts\n\n📖 发音要领：\n齿龈破擦音\n💡 技巧：t和s的结合\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• cats [/kæts/] - 猫（复数）\n• its [/ɪts/] - 它的\n• students [/ˈstjuːdənts/] - 学生们\n\n⚠️ 常见错误：\n1. 要连贯发音\n2. 常见于复数\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c25-lesson.mp3"
+    },
+    "c26": {
+      "id": "c26",
+      "symbol": "dz",
+      "name": "浊辅音 dz",
+      "lessonCn": "让我们来学习音标 dz\n\n📖 发音要领：\n齿龈破擦音\n💡 技巧：d和z的结合\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• beds [/bedz/] - 床（复数）\n• cards [/kɑːdz/] - 卡片（复数）\n• friends [/frendz/] - 朋友们\n\n⚠️ 常见错误：\n1. 声带要振动\n2. 常见于复数\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c26-lesson.mp3"
+    },
+    "c27": {
+      "id": "c27",
+      "symbol": "tr",
+      "name": "辅音组合 tr",
+      "lessonCn": "让我们来学习音标 tr\n\n📖 发音要领：\n齿龈后破擦音组合\n💡 技巧：t和r的组合，类似'戳'\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• tree [/triː/] - 树\n• train [/treɪn/] - 火车\n• country [/ˈkʌntri/] - 国家\n\n⚠️ 常见错误：\n1. 要连贯\n2. 略带摩擦\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c27-lesson.mp3"
+    },
+    "c28": {
+      "id": "c28",
+      "symbol": "dr",
+      "name": "辅音组合 dr",
+      "lessonCn": "让我们来学习音标 dr\n\n📖 发音要领：\n齿龈后破擦音组合\n💡 技巧：d和r的组合，类似'捉'\n👄 嘴型：undefined\n👅 舌位：undefined\n\n📝 示例单词：\n• drink [/drɪŋk/] - 喝\n• dream [/driːm/] - 梦\n• children [/ˈtʃɪldrən/] - 孩子们\n\n⚠️ 常见错误：\n1. 声带振动\n2. 要连贯\n\n现在让我们一起练习吧！请跟我读。",
+      "audioFile": "c28-lesson.mp3"
+    }
+  }
+}

@@ -16,10 +16,11 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug"
+    "test:e2e:debug": "playwright test --debug",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2.8.0",
+    "@tauri-apps/api": "^2.9.0",
     "@tauri-apps/plugin-shell": "^2.3.1",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
@@ -29,7 +30,7 @@
   "devDependencies": {
     "@playwright/test": "^1.56.0",
     "@tailwindcss/vite": "^4.0.0",
-    "@tauri-apps/cli": "^2.8.4",
+    "@tauri-apps/cli": "^2.9.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -38,6 +39,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/ui": "^3.2.4",
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.3.0",
     "happy-dom": "^20.0.0",
     "jsdom": "^27.0.0",
     "tailwindcss": "^4.0.0",

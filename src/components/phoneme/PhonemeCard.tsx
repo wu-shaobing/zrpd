@@ -3,9 +3,11 @@
  * 用于展示单个音标的核心信息
  */
 
-import { Volume2, Star, Check } from 'lucide-react';
+import { Volume2, Star, Check, RotateCcw } from 'lucide-react';
+import { useState } from 'react';
 import type { Phoneme } from '../../types/phoneme';
-import { useSpeech } from '../../hooks/useSpeech';
+import { usePhonemeAudio } from '../../hooks/usePhonemeAudio';
+import { useWordAudio } from '../../hooks/useWordAudio';
 import { usePhonicsStore } from '../../stores/phonicsStore';
 
 interface PhonemeCardProps {
@@ -21,7 +23,10 @@ export function PhonemeCard({
   showProgress = true,
   onClick,
 }: PhonemeCardProps) {
-  const { speak } = useSpeech();
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isLessonPlaying, setIsLessonPlaying] = useState(false);
+  const { play, isPlaying } = usePhonemeAudio();
+  const { playWord } = useWordAudio();
   const { getProgress, toggleFavorite } = usePhonicsStore();
   
   const progress = getProgress(phoneme.id);
@@ -52,15 +57,62 @@ export function PhonemeCard({
     return colors[phoneme.difficulty - 1] || colors[0];
   };
 
-  const handlePlaySound = (e: React.MouseEvent) => {
+  const handlePlaySound = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    const exampleWords = phoneme.examples.map(ex => ex.word).join(', ');
-    speak(exampleWords);
+    
+    // 使用新的音频适配器播放音素
+    // 传入音素ID，适配器会自动选择最佳播放策略
+    await play(phoneme.id);
   };
 
   const handleToggleFavorite = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggleFavorite(phoneme.id);
+  };
+
+  // 播放示例单词发音
+  const handlePlayWord = async (e: React.MouseEvent, word: string) => {
+    e.stopPropagation();
+    
+    // 使用本地音频文件播放单词
+    await playWord(word);
+  };
+
+  // 翻转卡片
+  const handleCardClick = (e: React.MouseEvent) => {
+    // 如果点击的是按钮，不翻转
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'BUTTON' || target.closest('button')) {
+      return;
+    }
+    
+    setIsFlipped(!isFlipped);
+    onClick?.();
+  };
+
+  // 播放讲解音频
+  const handlePlayLesson = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    
+    const lessonAudio = new Audio(`/audio/lessons/${phoneme.id}-lesson.mp3`);
+    
+    setIsLessonPlaying(true);
+    
+    lessonAudio.addEventListener('ended', () => {
+      setIsLessonPlaying(false);
+    });
+    
+    lessonAudio.addEventListener('error', () => {
+      console.error('Failed to play lesson audio');
+      setIsLessonPlaying(false);
+    });
+    
+    try {
+      await lessonAudio.play();
+    } catch (error) {
+      console.error('Failed to play lesson:', error);
+      setIsLessonPlaying(false);
+    }
   };
 
   if (variant === 'compact') {
@@ -89,16 +141,37 @@ export function PhonemeCard({
 
   return (
     <div
-      className={`
-        phoneme-card
-        bg-white rounded-xl p-6 border-2
-        shadow-sm hover:shadow-lg
-        transition-all duration-200
-        ${onClick ? 'cursor-pointer hover:scale-105' : ''}
-        ${getMasteryColor()}
-      `}
-      onClick={onClick}
+      className="phoneme-card-container relative"
+      style={{
+        perspective: '1000px',
+        minHeight: '400px',
+      }}
     >
+      <div
+        className={`phoneme-card-flipper relative w-full h-full transition-transform duration-500 ${
+          isFlipped ? '[transform:rotateY(180deg)]' : ''
+        }`}
+        style={{
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {/* 卡片正面 */}
+        <div
+          className={`
+            phoneme-card-front
+            absolute inset-0
+            bg-white rounded-xl p-6 border-2
+            shadow-sm hover:shadow-lg
+            transition-all duration-200
+            cursor-pointer
+            ${getMasteryColor()}
+          `}
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+          }}
+          onClick={handleCardClick}
+        >
       {/* 头部：音标符号 + 收藏 */}
       <div className="flex items-start justify-between mb-4">
         <div>
@@ -143,12 +216,14 @@ export function PhonemeCard({
         <h4 className="text-xs font-semibold text-gray-600 mb-2">示例单词</h4>
         <div className="flex flex-wrap gap-2">
           {phoneme.examples.slice(0, 3).map((example, index) => (
-            <div
+            <button
               key={index}
-              className="text-sm px-3 py-1 bg-gray-50 rounded-full border border-gray-200"
+              onClick={(e) => handlePlayWord(e, example.word)}
+              className="text-sm px-3 py-1 bg-gray-50 rounded-full border border-gray-200 hover:bg-indigo-50 hover:border-indigo-300 hover:text-indigo-700 transition-colors cursor-pointer"
+              aria-label={`播放单词 ${example.word}`}
             >
               {example.word}
-            </div>
+            </button>
           ))}
         </div>
       </div>
@@ -178,11 +253,118 @@ export function PhonemeCard({
       {/* 播放按钮 */}
       <button
         onClick={handlePlaySound}
-        className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+        disabled={isPlaying}
+        className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label={`播放 ${phoneme.name} 的发音`}
       >
-        <Volume2 size={18} />
-        听发音
+        <Volume2 size={18} className={isPlaying ? 'animate-pulse' : ''} />
+        {isPlaying ? '播放中...' : '听发音'}
       </button>
+        </div>
+
+        {/* 卡片背面 - 详细讲解 */}
+        <div
+          className="phoneme-card-back absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 shadow-lg overflow-y-auto cursor-pointer"
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+          }}
+          onClick={handleCardClick}
+        >
+          {/* 头部 */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="text-5xl font-bold text-indigo-600">/{phoneme.symbol}/</div>
+              <div>
+                <div className="text-lg font-semibold text-gray-800">{phoneme.name}</div>
+                <div className="text-xs text-gray-500">点击翻回正面</div>
+              </div>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFlipped(false);
+              }}
+              className="p-2 rounded-full hover:bg-white/50 transition-colors"
+              aria-label="翻回正面"
+            >
+              <RotateCcw size={20} className="text-indigo-600" />
+            </button>
+          </div>
+
+          {/* 讲解内容 */}
+          <div className="space-y-4 text-sm">
+            {/* 发音要领 */}
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <h3 className="text-base font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                📖 发音要领
+              </h3>
+              <p className="text-gray-700 mb-2">{phoneme.pronunciation.cn}</p>
+              <p className="text-xs text-gray-600">💡 <strong>技巧：</strong>{phoneme.pronunciation.tips}</p>
+              <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+                <div className="bg-indigo-50 rounded px-2 py-1">
+                  <span className="text-gray-600">👄 嘴型：</span>
+                  <span className="font-medium text-gray-800">{phoneme.pronunciation.mouthShape}</span>
+                </div>
+                <div className="bg-purple-50 rounded px-2 py-1">
+                  <span className="text-gray-600">👅 舌位：</span>
+                  <span className="font-medium text-gray-800">{phoneme.pronunciation.tonguePosition}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 示例单词 */}
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <h3 className="text-base font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                📝 示例单词
+              </h3>
+              <div className="space-y-2">
+                {phoneme.examples.slice(0, 3).map((example, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <div>
+                      <button
+                        onClick={(e) => handlePlayWord(e, example.word)}
+                        className="font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+                      >
+                        {example.word}
+                      </button>
+                      <span className="text-gray-500 text-xs ml-2">{example.phonetic}</span>
+                      <span className="text-gray-600 ml-2">- {example.translation}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 常见错误 */}
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <h3 className="text-base font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                ⚠️ 常见错误
+              </h3>
+              <ul className="space-y-1 text-gray-700">
+                {phoneme.commonMistakes.map((mistake, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-red-500 mr-2">•</span>
+                    <span>{mistake}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 播放讲解按钮 */}
+            <button
+              onClick={handlePlayLesson}
+              disabled={isLessonPlaying}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="播放详细讲解"
+            >
+              <Volume2 size={20} className={isLessonPlaying ? 'animate-pulse' : ''} />
+              {isLessonPlaying ? '讲解中...' : '👩‍🏫 听老师讲解'}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

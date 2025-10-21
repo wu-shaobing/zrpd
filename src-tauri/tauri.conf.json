@@ -48,15 +48,7 @@
   },
   "plugins": {
     "shell": {
-      "open": false,
-      "scope": [
-        {
-          "name": "say",
-          "cmd": "say",
-          "args": ["-v", "Alex", { "validator": "\\S+" }],
-          "sidecar": false
-        }
-      ]
+      "open": false
     }
   }
 }

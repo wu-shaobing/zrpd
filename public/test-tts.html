@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS 测试页面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #4F46E5;
+        }
+        button {
+            background: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #4338CA;
+        }
+        button:disabled {
+            background: #9CA3AF;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .success {
+            border-left: 4px solid #10B981;
+        }
+        .error {
+            border-left: 4px solid #EF4444;
+            color: #DC2626;
+        }
+        .info {
+            border-left: 4px solid #3B82F6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔊 TTS 系统测试</h1>
+        
+        <div class="test-section">
+            <h3>1. 查询系统能力</h3>
+            <button onclick="testCapability()">获取 TTS 能力</button>
+            <div id="capability-result" class="result info" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>2. 列出可用语音</h3>
+            <button onclick="testListVoices()">列出所有语音</button>
+            <div id="voices-result" class="result info" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>3. 测试英文播报</h3>
+            <button onclick="testEnglish()">播放: "Hello, welcome to natural phonics!"</button>
+            <button onclick="testEnglishSlow()">慢速播放 (rate=0.7)</button>
+            <button onclick="testEnglishFast()">快速播放 (rate=1.3)</button>
+            <div id="english-result" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>4. 测试中文播报</h3>
+            <button onclick="testChinese()">播放: "你好，欢迎学习自然拼读"</button>
+            <button onclick="testChineseSlow()">慢速播放</button>
+            <div id="chinese-result" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>5. 测试混合内容</h3>
+            <button onclick="testMixed()">播放: "元音字母 A, E, I, O, U"</button>
+            <div id="mixed-result" class="result" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // 检查 Tauri 环境
+        const isTauri = window.__TAURI_INTERNALS__ !== undefined;
+        
+        if (!isTauri) {
+            document.body.innerHTML = '<div class="container"><h1 style="color:#EF4444;">⚠️ 请在 Tauri 应用中打开此页面</h1><p>当前环境不支持 Tauri commands</p></div>';
+        }
+
+        const { invoke } = window.__TAURI__.core;
+
+        async function testCapability() {
+            const result = document.getElementById('capability-result');
+            result.style.display = 'block';
+            result.textContent = '正在查询...';
+            result.className = 'result info';
+            
+            try {
+                const cap = await invoke('tts_capability');
+                result.className = 'result success';
+                result.textContent = JSON.stringify(cap, null, 2);
+            } catch (error) {
+                result.className = 'result error';
+                result.textContent = 'Error: ' + error;
+            }
+        }
+
+        async function testListVoices() {
+            const result = document.getElementById('voices-result');
+            result.style.display = 'block';
+            result.textContent = '正在加载语音列表...';
+            result.className = 'result info';
+            
+            try {
+                const voices = await invoke('tts_list_voices');
+                result.className = 'result success';
+                result.textContent = `找到 ${voices.length} 个语音:\n\n` + 
+                    voices.map((v, i) => `${i+1}. ${v.name} (${v.lang}) - ID: ${v.id}`).join('\n');
+            } catch (error) {
+                result.className = 'result error';
+                result.textContent = 'Error: ' + error;
+            }
+        }
+
+        async function testEnglish() {
+            await testSpeak('Hello, welcome to natural phonics!', 'en-US', 0.9, 'english-result');
+        }
+
+        async function testEnglishSlow() {
+            await testSpeak('Hello, welcome to natural phonics!', 'en-US', 0.7, 'english-result');
+        }
+
+        async function testEnglishFast() {
+            await testSpeak('Hello, welcome to natural phonics!', 'en-US', 1.3, 'english-result');
+        }
+
+        async function testChinese() {
+            await testSpeak('你好，欢迎学习自然拼读', 'zh-CN', 1.0, 'chinese-result');
+        }
+
+        async function testChineseSlow() {
+            await testSpeak('你好，欢迎学习自然拼读', 'zh-CN', 0.8, 'chinese-result');
+        }
+
+        async function testMixed() {
+            await testSpeak('元音字母 A, E, I, O, U', 'zh-CN', 0.9, 'mixed-result');
+        }
+
+        async function testSpeak(text, lang, rate, resultId) {
+            const result = document.getElementById(resultId);
+            result.style.display = 'block';
+            result.textContent = `正在播放: "${text}"\n语言: ${lang}\n速率: ${rate}`;
+            result.className = 'result info';
+            
+            try {
+                await invoke('tts_speak_system', {
+                    text: text,
+                    lang: lang,
+                    voice: null,
+                    rate: rate,
+                    pitch: 1.0
+                });
+                result.className = 'result success';
+                result.textContent += '\n\n✅ 播放成功！';
+            } catch (error) {
+                result.className = 'result error';
+                result.textContent = `播放失败:\n${error}`;
+            }
+        }
+
+        // 页面加载时自动测试能力
+        window.onload = () => {
+            setTimeout(testCapability, 500);
+        };
+    </script>
+</body>
+</html>
