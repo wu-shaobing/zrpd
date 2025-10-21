@@ -44,8 +44,3 @@ logs/
 tmp/
 temp/
 *.tmp
-
-# Audio assets (generated, not committed)
-public/assets/audio/*.mp3
-public/assets/audio/*.ogg
-public/assets/audio/*.wav

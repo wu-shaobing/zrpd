@@ -339,8 +339,9 @@ export class PhonemeAudioAdapter {
    */
   async preloadSprite(spriteKey: string): Promise<boolean> {
     // 构建sprite URL（根据实际部署路径调整）
-    const audioUrl = `/assets/audio/${spriteKey}.mp3`;
-    const jsonUrl = `/assets/audio/${spriteKey}.json`;
+    const base = import.meta.env.BASE_URL || '/';
+    const audioUrl = `${base}assets/audio/${spriteKey}.mp3`;
+    const jsonUrl = `${base}assets/audio/${spriteKey}.json`;
     
     try {
       // 并行加载音频与索引
