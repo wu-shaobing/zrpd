@@ -94,7 +94,8 @@ export function PhonemeCard({
   const handlePlayLesson = async (e: React.MouseEvent) => {
     e.stopPropagation();
     
-    const lessonAudio = new Audio(`/audio/lessons/${phoneme.id}-lesson.mp3`);
+    const base = import.meta.env.BASE_URL || '/';
+    const lessonAudio = new Audio(`${base}audio/lessons/${phoneme.id}-lesson.mp3`);
     
     setIsLessonPlaying(true);
     

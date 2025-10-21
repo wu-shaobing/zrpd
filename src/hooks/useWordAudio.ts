@@ -33,7 +33,8 @@ const audioCache = new Map<string, HTMLAudioElement>();
 export function useWordAudio(
   options: UseWordAudioOptions = {}
 ): UseWordAudioReturn {
-  const { basePath = '/audio/words', preload = false } = options;
+  const base = import.meta.env.BASE_URL || '/';
+  const { basePath = `${base}audio/words`, preload = false } = options;
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentWord, setCurrentWord] = useState<string | null>(null);
@@ -180,8 +181,10 @@ export function useWordAudio(
  */
 export async function playWordQuick(
   word: string,
-  basePath: string = '/audio/words'
+  basePath?: string
 ): Promise<boolean> {
+  const base = import.meta.env.BASE_URL || '/';
+  basePath = basePath || `${base}audio/words`;
   if (!word) return false;
 
   const filename = word.toLowerCase().trim();
@@ -202,8 +205,10 @@ export async function playWordQuick(
  */
 export async function preloadWords(
   words: string[],
-  basePath: string = '/audio/words'
+  basePath?: string
 ): Promise<void> {
+  const base = import.meta.env.BASE_URL || '/';
+  basePath = basePath || `${base}audio/words`;
   const preloadPromises = words.map(async (word) => {
     const filename = word.toLowerCase().trim();
     const path = `${basePath}/${filename}.mp3`;
